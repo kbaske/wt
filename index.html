@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sat">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="mobile-header">
+        <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</button>
+        <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
+    </div>
+    <div class="desktop-header">
+        <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
+        <nav>
+            <ul class="desktop-menu">
+                <li><a href="/wt">ᱚᱲᱟᱜ</a></li>
+                <li><a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a></li>
+                <li class="dropdown">
+                    <a href="#tools">ᱥᱟᱯᱟᱵ ᱠᱚ</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Wiktionary/check if page exists or not/">Check Word</a></li>
+                        <li><a href="/Wiktionary/Santali Dictionary or Translation/">Dictionary/Translation Search</a></li>
+                        <li><a href="/Wiktionary/Page Template/">Interactive Template</a></li>
+                        <li><a href="/wt/template/">Wiktionary Template</a></li>
+                        <li><a href="/Wiktionary/SN Template/">SN Template</a></li>
+                        <li><a href="/Wiktionary/Mymemory/mymemory.html">Mymemory</a></li>
+                        <li><a href="/Wiktionary/Santali Psedo TTS/">Santali TTS</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="mobile-menu" class="mobile-menu">
+  <button id="close-menu" class="close-button">X</button>
+  <!-- Add your menu items here -->
+  <a href="/wt">ᱚᱲᱟᱜ</a>
+  <a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a>
+  <div class="dropdown">
+    <a href="#tools" class="dropdown-toggle" onclick="toggleDropdown(event)">ᱥᱟᱯᱟᱵ ᱠᱚ <span class="drop-u">◡</span> </a>
+    <ul class="dropdown-content">
+      <li><a href="/Wiktionary/check if page exists or not/">Check Word</a></li>
+      <li><a href="/Wiktionary/Santali Dictionary or Translation/">Dictionary/Translation Search</a></li>
+      <li><a href="/Wiktionary/Page Template/">Interactive Template</a></li>
+      <li><a href="/wt/template/">Wiktionary Template</a></li>
+      <li><a href="/Wiktionary/SN Template/">SN Template</a></li>
+      <li><a href="/Wiktionary/Mymemory/mymemory.html">Mymemory</a></li>
+      <li><a href="/Wiktionary/Santali Psedo TTS/">Santali TTS</a></li>
+    </ul>
+</div>
+  <a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+  <main>
+    <section class="search-section">
+      <h2>ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ ᱨᱮ ᱥᱮᱸᱫᱽᱨᱟ</h2>
+      <form name="basicForm" onSubmit="return basicSearch();">
+        <div class="form-control">
+          <label for="searchterms">ᱟᱹᱲᱟᱹ ᱚᱞ ᱢᱮ:</label>
+          <input type="text" id="searchterms" name="searchterms" list="santaliwt" placeholder="ᱱᱚᱰᱮ ᱟᱢᱟᱜ ᱟᱹᱲᱟᱹ ᱚᱞ ᱢᱮ" />
+          <datalist id="santaliwt"></datalist>
+        </div>
+        <button type="submit" class="submit-btn">ᱥᱮᱸᱫᱽᱨᱟ</button>
+        <input type="button" class="reset-btn" value="ᱤᱬᱤᱡᱽ ᱢᱮ" onclick="this.form.reset();" />
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p> <span class="copyrt">©</span> 2024 <a href="https://olbaha.blogspot.com/" target="_blank" rel="noopener">Santali Tools</a>. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

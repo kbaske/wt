@@ -1,0 +1,226 @@
+/* Fonts used */
+@font-face {
+    font-family: 'Sohagee'; /* Choose a name for your font */
+    src: url('fonts/Sohagee.woff2') format('woff2'), /* Modern browsers */
+         url('fonts/Sohagee.woff') format('woff'),   /* Older browsers */
+         url('fonts/Sohagee.ttf') format('truetype'); /* Fallback */
+    font-weight: normal; /* Specify weight (normal, bold, etc.) */
+    font-style: normal;  /* Specify style (normal, italic, etc.) */
+}
+
+/* Styling the Body element - color, font, alignment */
+body {
+    background-color: #f0f4fc; /* Soft light blue background */
+    font-family: 'Sohagee', 'Noto Sans Ol Chiki', 'Verdana', 'Geneva', 'Tahoma', sans-serif;
+    text-align: center;
+    color: #3a3a3a; /* Dark grey text for readability */
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling Links in Header */
+.ancr {
+    text-decoration: none;
+    color: #673ab7; /* Rich purple for links */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.ancr:hover {
+    color: #4527a0; /* Darker purple on hover */
+}
+
+/* Styling OlBaha Text */
+.olbaha {
+    color: #ff4081; /* Vivid pink for emphasis */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Styling the Form */
+form {
+    background-color: #ffffff; /* White background for form */
+    max-width: 500px;
+    margin: 40px auto; /* Centered with balanced top and bottom margin */
+    padding: 30px 25px; /* Uniform padding for space inside form */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Styling form-control class */
+.form-control {
+    text-align: left;
+    margin-bottom: 20px; /* Consistent bottom margin between controls */
+}
+
+/* Styling Labels */
+.form-control label {
+    display: block;
+    margin-bottom: 8px; /* Slightly increased for clarity */
+    font-weight: 600;
+    color: #3a3a3a; /* Dark grey for labels */
+}
+
+/* Input and Select Fields */
+.form-control input,
+.form-control select {
+    border: 1.5px solid #cfd8dc; /* Soft grey border */
+    border-radius: 6px;
+    padding: 10px 12px; /* Reduced padding for a more compact appearance */
+    font-size: 1rem;
+    display: block;
+    width: calc(100% - 24px); /* Accounts for padding */
+    color: #3a3a3a;
+}
+
+.form-control input:focus,
+.form-control select:focus {
+    border-color: #5c6bc0; /* Muted purple on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(92, 107, 192, 0.3);
+}
+
+/* Radio Button and Checkbox Styling */
+.form-control input[type="radio"],
+.form-control input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+    margin-right: 8px;
+}
+
+/* Styling Buttons */
+button {
+    background-color: #00bfa5; /* Minty teal button */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 0; /* Balanced padding */
+    width: 100%;
+    margin: 30px 0 20px; /* Added consistent top and bottom spacing */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00897b; /* Darker teal on hover */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center buttons in the container */
+    gap: 10px; /* Spacing between buttons */
+}
+
+/* Styling Input Fields inside form-control-inputB */
+.form-control-inputB input {
+    background-color: #00bfa5; /* Minty teal background */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    padding: 10px;
+    display: block;
+    width: 60%;
+    margin: 10px auto; /* Centered with balanced margin */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-control-inputB input:hover {
+    background-color: #00897b; /* Darker teal on hover */
+}
+
+/* Styling Textarea */
+.form-control textarea {
+    background-color: #e3f2fd; /* Light pastel blue */
+    border: 1.5px solid #cfd8dc; /* Soft grey border */
+    border-radius: 5px;
+    padding: 12px;
+    display: block;
+    width: calc(100% - 24px); /* Accounts for padding */
+    height: 200px;
+    font-family: inherit;
+    color: #3a3a3a;
+    resize: vertical;
+}
+
+/* Homei Banner */
+.homei {
+    text-align: center;
+    padding: 0.5rem; /* Increased padding for balance */
+    background-color: #d1c4e9; /* Soft lavender */
+    font-size: 1.3rem;
+    color: #3a3a3a;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+/* Reset Button Styling */
+.form-control-reset input {
+    background-color: #ff5252; /* Bright coral red */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    padding: 10px;
+    display: block;
+    width: 40%;
+    margin: 15px auto; /* Centered with balanced margin */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.form-control-reset input:hover {
+    background-color: #d32f2f; /* Darker coral red on hover */
+}
+
+/* Toast container styling */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Toast message styling */
+.toast {
+    min-width: 200px;
+    padding: 12px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 0.5s forwards, fadeOut 0.5s 3s forwards;
+}
+
+/* Slide in and fade out animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}

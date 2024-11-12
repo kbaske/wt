@@ -1,2 +1,3 @@
-# wt
+# Santali Wiktionary
+
 Wiktionary Projects

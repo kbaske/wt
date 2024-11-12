@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santali Wiktionary Template</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="olbaha">
+    <header>ᱚᱞ ᱵᱟᱦᱟ ᱫᱚ ᱢᱤᱫ ᱥᱟᱱᱛᱟᱲᱤ ᱯᱟᱹᱨᱥᱤ ᱯᱚᱴᱟᱞ ᱠᱟᱱᱟ ᱾</header>
+    <p>ᱱᱚᱶᱟ ᱯᱚᱴᱟᱞ ᱨᱮᱭᱟᱜ ᱚᱱᱚᱞ ᱠᱚ ᱯᱟᱲᱦᱟᱣ ᱥᱟᱱᱟᱭᱮᱫ ᱵᱚᱱ ᱠᱷᱟᱱ <a class="ancr" href="https://olbaha.blogspot.com/" target="_blank" rel="noopener">ᱚᱞ ᱵᱟᱦᱟ</a> ᱵᱚᱱ ᱦᱤᱨᱤ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</p>
+  </div>
+
+  <hr />
+  
+  <h1>Santali Wiktionary</h1>
+
+  <form name="sources" id="form">
+    <!-- Word -->
+    <div class="form-control">
+      <label for="Sword" id="label-name">Word (mandatory, e.g., ᱥᱟᱱᱛᱟᱲᱤ)</label>
+      <input type="text" id="Sword" placeholder="Enter a Word" oninput="updateFirstCharacter();" required />
+    </div>
+
+    <!-- Meaning -->
+    <div class="form-control">
+      <label for="Smeaning" id="label-name">Meaning (mandatory)</label>
+      <input type="text" id="Smeaning" placeholder="Enter a Meaning" required />
+    </div>
+
+    <!-- Audio -->
+    <div class="form-control">
+      <label for="Saudio" id="label-name">Audio link (optional) e.g., ᱝ - Santali script.ogg</label>
+      <input type="text" id="Saudio" placeholder="Audio link" />
+    </div>
+
+    <!-- IPA Pronunciation -->
+    <div class="form-control">
+      <label for="proipa" id="label-name">IPA Pronunciation (optional)</label>
+      <input type="text" id="proipa" placeholder="IPA Pronunciation" />
+    </div>
+
+    <!-- English -->
+    <div class="form-control">
+      <label for="english" id="label-name">English (Optional) - add commas to add multiple words</label>
+      <input type="text" id="english" placeholder="English Word" />
+    </div>
+
+    <!-- Odia -->
+    <div class="form-control">
+      <label for="odia" id="label-name">Odia Word (optional)</label>
+      <input type="text" id="odia" placeholder="Odia Word" />
+    </div>
+
+    <!-- Hindi -->
+    <div class="form-control">
+      <label for="hindi" id="label-name">Hindi Word (optional)</label>
+      <input type="text" id="hindi" placeholder="Hindi Word" />
+    </div>
+
+    <!-- Bangla -->
+    <div class="form-control">
+      <label for="bangla" id="label-name">Bangla Word (optional)</label>
+      <input type="text" id="bangla" placeholder="Bangla Word" />
+    </div>
+
+    <!-- Assamese -->
+    <div class="form-control">
+      <label for="assamese" id="label-name">Assamese Word (optional)</label>
+      <input type="text" id="assamese" placeholder="Assamese Word" />
+    </div>
+
+    <!-- First Character (Auto-populated) -->
+    <div class="form-control">
+      <label for="firstC" id="label-name">First Character (auto-filled)</label>
+      <input type="text" id="firstC" placeholder="First Character" readonly />
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-control-inputB">
+      <input type="button" value="Create" id="createButton" onclick="writeCode();" />
+      <div class="button-container">
+        <input type="button" value="Copy" id="copyButton" onclick="copy()" />
+        <input type="button" value="Copy & Go Wiktionary" id="copyRedirect" />
+      </div>
+      <input type="button" name="reset_form" value="Reset Form" id="resetButton" onclick="this.form.reset(); updateFirstCharacter();" />
+    </div>
+
+    <!-- Toast -->
+    <div id="toast-container"></div>
+
+    <!-- Output -->
+    <div class="form-control">
+      <label for="comment">Your Text</label>
+      <textarea name="comment" id="outputForm" placeholder="Press Generate Button"></textarea>
+    </div>
+  </form>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
