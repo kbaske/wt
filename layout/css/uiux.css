@@ -1,9 +1,9 @@
 /* Fonts used */
 @font-face {
     font-family: 'Sohagee'; /* Choose a name for your font */
-    src: url('fonts/Sohagee.woff2') format('woff2'), /* Modern browsers */
-         url('fonts/Sohagee.woff') format('woff'),   /* Older browsers */
-         url('fonts/Sohagee.ttf') format('truetype'); /* Fallback */
+    src: url('../../fonts/Sohagee.woff2') format('woff2'), /* Modern browsers */
+         url('../../fonts/Sohagee.woff') format('woff'),   /* Older browsers */
+         url('../../fonts/Sohagee.ttf') format('truetype'); /* Fallback */
     font-weight: normal; /* Specify weight (normal, bold, etc.) */
     font-style: normal;  /* Specify style (normal, italic, etc.) */
   }
@@ -218,10 +218,6 @@
     right: 20px;
   }
   
-  .drop-u img {
-    filter: invert(100%);
-  }
-  
   /* Responsive Design */
   @media (min-width: 768px) {
     .mobile-header {
@@ -268,7 +264,7 @@ footer {
     background: #3e4ab1; /* Matches header */
     color: #f3f3f3; /* Consistent text color */
     text-align: center;
-    padding: 10px 20px;
+    padding: 10px 12px;
     position: fixed;
     bottom: 0;
     width: 100%;

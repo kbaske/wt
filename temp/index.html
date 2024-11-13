@@ -1,27 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sat">
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Santali Wiktionary Template</title>
-  <link rel="stylesheet" href="style.css">
+  <title>ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</title>
+  <link rel="stylesheet" href="../layout/css/uiux.css">
+  <link rel="stylesheet" href="css/temp.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="olbaha">
-    <header>ᱚᱞ ᱵᱟᱦᱟ ᱫᱚ ᱢᱤᱫ ᱥᱟᱱᱛᱟᱲᱤ ᱯᱟᱹᱨᱥᱤ ᱯᱚᱴᱟᱞ ᱠᱟᱱᱟ ᱾</header>
-    <p>ᱱᱚᱶᱟ ᱯᱚᱴᱟᱞ ᱨᱮᱭᱟᱜ ᱚᱱᱚᱞ ᱠᱚ ᱯᱟᱲᱦᱟᱣ ᱥᱟᱱᱟᱭᱮᱫ ᱵᱚᱱ ᱠᱷᱟᱱ <a class="ancr" href="https://olbaha.blogspot.com/" target="_blank" rel="noopener">ᱚᱞ ᱵᱟᱦᱟ</a> ᱵᱚᱱ ᱦᱤᱨᱤ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</p>
-  </div>
+  <header>
+    <div class="mobile-header">
+        <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</button>
+        <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
+    </div>
+    <div class="desktop-header">
+        <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
+        <nav>
+            <ul class="desktop-menu">
+                <li><a href="/wt">ᱚᱲᱟᱜ</a></li>
+                <li><a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a></li>
+                <li class="dropdown">
+                    <a href="#tools">ᱥᱟᱯᱟᱵ ᱠᱚ</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/wt/search/">Check Word</a></li>
+                      <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
+                      <li><a href="/wt/itemp/">Interactive Template</a></li>
+                      <li><a href="/wt/temp/">Wiktionary Template</a></li>
+                      <li><a href="/wt/stemp/">SN Template</a></li>
+                      <li><a href="/wt/mymemory/">Mymemory</a></li>
+                      <li><a href="/wt/sptts/">Santali TTS</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-  <hr />
-  
-  <h1>Santali Wiktionary</h1>
+<div id="mobile-menu" class="mobile-menu">
+  <button id="close-menu" class="close-button">X</button>
+  <!-- Add your menu items here -->
+  <a href="/wt">ᱚᱲᱟᱜ</a>
+  <a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a>
+  <div class="dropdown">
+    <a href="#tools" class="dropdown-toggle" onclick="toggleDropdown(event)">ᱥᱟᱯᱟᱵ ᱠᱚ <span class="drop-u"><img width="20" height="20" src="https://img.icons8.com/ios/20/FFFFFF/circled-chevron-down.png" alt="circled-chevron-down"/></span> </a>
+    <ul class="dropdown-content">
+      <li><a href="/wt/search/">Check Word</a></li>
+        <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
+        <li><a href="/wt/itemp/">Interactive Template</a></li>
+        <li><a href="/wt/temp/">Wiktionary Template</a></li>
+        <li><a href="/wt/stemp/">SN Template</a></li>
+        <li><a href="/wt/mymemory/">Mymemory</a></li>
+        <li><a href="/wt/sptts/">Santali TTS</a></li>
+    </ul>
+</div>
+  <a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a>
+</div>
 
+<div class="overlay" id="overlay"></div>
+
+  <main>
   <form name="sources" id="form">
     <!-- Word -->
     <div class="form-control">
@@ -103,8 +146,14 @@
     </div>
   </form>
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+  </main>
+
+  <footer>
+    <p> <span class="copyrt">©</span> 2024 <a href="https://olbaha.blogspot.com/" target="_blank" rel="noopener">Santali Tools</a>. All Rights Reserved.</p>
+  </footer>
+
+  <script src="../layout/js/uiux.js"></script>
+  <script src="js/temp.js"></script>
 </body>
 
 </html>

@@ -1,42 +1,3 @@
-/* Fonts used */
-@font-face {
-    font-family: 'Sohagee'; /* Choose a name for your font */
-    src: url('fonts/Sohagee.woff2') format('woff2'), /* Modern browsers */
-         url('fonts/Sohagee.woff') format('woff'),   /* Older browsers */
-         url('fonts/Sohagee.ttf') format('truetype'); /* Fallback */
-    font-weight: normal; /* Specify weight (normal, bold, etc.) */
-    font-style: normal;  /* Specify style (normal, italic, etc.) */
-}
-
-/* Styling the Body element - color, font, alignment */
-body {
-    background-color: #f0f4fc; /* Soft light blue background */
-    font-family: 'Sohagee', 'Noto Sans Ol Chiki', 'Verdana', 'Geneva', 'Tahoma', sans-serif;
-    text-align: center;
-    color: #3a3a3a; /* Dark grey text for readability */
-    margin: 0;
-    padding: 0;
-}
-
-/* Styling Links in Header */
-.ancr {
-    text-decoration: none;
-    color: #673ab7; /* Rich purple for links */
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.ancr:hover {
-    color: #4527a0; /* Darker purple on hover */
-}
-
-/* Styling OlBaha Text */
-.olbaha {
-    color: #ff4081; /* Vivid pink for emphasis */
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
 /* Styling the Form */
 form {
     background-color: #ffffff; /* White background for form */
@@ -152,17 +113,6 @@ button:hover {
     resize: vertical;
 }
 
-/* Homei Banner */
-.homei {
-    text-align: center;
-    padding: 0.5rem; /* Increased padding for balance */
-    background-color: #d1c4e9; /* Soft lavender */
-    font-size: 1.3rem;
-    color: #3a3a3a;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-}
-
 /* Reset Button Styling */
 .form-control-reset input {
     background-color: #ff5252; /* Bright coral red */
@@ -204,23 +154,4 @@ button:hover {
     opacity: 0;
     transform: translateY(-20px);
     animation: slideIn 0.5s forwards, fadeOut 0.5s 3s forwards;
-}
-
-/* Slide in and fade out animations */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
 }
