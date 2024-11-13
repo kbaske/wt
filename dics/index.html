@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translation Tools</title>
+  <link rel="stylesheet" href="css/dics.css">
+</head>
+<body>
+  <div class="header">
+    <a href="../index.html" class="home-link">Home</a>
+    <h1>Translation Tools</h1>
+    <p class="instruction">Use one tool at a time to avoid conflicts.</p>
+  </div>
+
+  <!-- MyMemory Tool -->
+  <section class="translation-tool">
+    <h2>MyMemory Translation</h2>
+    <div class="tool-container">
+      <textarea id="mymemory-input" placeholder="Enter text (English)"></textarea>
+      <textarea id="mymemory-output" placeholder="Translation" readonly></textarea>
+      <div class="controls">
+        <button id="mymemory-translate">Translate</button>
+        <button id="mymemory-clear">Clear</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Glosbe Tool -->
+  <section class="translation-tool">
+    <h2>Glosbe Translation</h2>
+    <form id="glosbe-form" method="GET" target="_blank">
+      <textarea id="glosbe-source-lang" name="sourceLang" placeholder="Source language (e.g., en)">en</textarea>
+      <textarea id="glosbe-target-lang" name="targetLang" placeholder="Target language (e.g., sat)">sat</textarea>
+      <textarea id="glosbe-text" name="text" placeholder="Enter text">Cow</textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- OmegaWiki Tool -->
+  <section class="translation-tool">
+    <h2>OmegaWiki Search</h2>
+    <form id="omegawiki-form" method="GET" target="_blank">
+      <textarea id="omegawiki-input" placeholder="Enter text"></textarea>
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <!-- Google Translate Tool -->
+  <section class="translation-tool">
+    <h2>Google Translate</h2>
+    <form id="google-form" method="GET" target="_blank">
+      <textarea id="google-input" placeholder="Enter text"></textarea>
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Help improve translations by contributing to tools like MyMemory!</p>
+  </footer>
+
+  <script src="js/dics.js"></script>
+</body>
+</html>
