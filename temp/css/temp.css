@@ -2,7 +2,7 @@
 form {
     background-color: #ffffff; /* White background for form */
     max-width: 500px;
-    margin: 40px auto; /* Centered with balanced top and bottom margin */
+    margin: 40px auto 110px; /* Centered with balanced top and bottom margin */
     padding: 30px 25px; /* Uniform padding for space inside form */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -55,7 +55,7 @@ form:hover {
 }
 
 /* Styling Buttons */
-button {
+form button {
     background-color: #00bfa5; /* Minty teal button */
     color: #ffffff; /* White text */
     border: none;
@@ -69,7 +69,7 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+form button:hover {
     background-color: #00897b; /* Darker teal on hover */
 }
 
