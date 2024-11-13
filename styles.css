@@ -218,6 +218,10 @@ header {
   right: 20px;
 }
 
+.drop-u img {
+  filter: invert(100%);
+}
+
 /* Responsive Design */
 @media (min-width: 768px) {
   .mobile-header {

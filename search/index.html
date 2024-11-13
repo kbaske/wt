@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../layout/css/uiux.css">
+  <link rel="stylesheet" href="css/search.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki:wght@400..700&display=swap" rel="stylesheet">
@@ -26,13 +27,13 @@
                 <li class="dropdown">
                     <a href="#tools">ᱥᱟᱯᱟᱵ ᱠᱚ</a>
                     <ul class="dropdown-menu">
-                      <li><a href="/wt/search/">Check Word</a></li>
-                      <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
-                      <li><a href="/wt/itemp/">Interactive Template</a></li>
-                      <li><a href="/wt/temp/">Wiktionary Template</a></li>
-                      <li><a href="/wt/stemp/">SN Template</a></li>
-                      <li><a href="/wt/mymemory/">Mymemory</a></li>
-                      <li><a href="/wt/sptts/">Santali TTS</a></li>
+                        <li><a href="/wt/search/">Check Word</a></li>
+                        <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
+                        <li><a href="/wt/itemp/">Interactive Template</a></li>
+                        <li><a href="/wt/temp/">Wiktionary Template</a></li>
+                        <li><a href="/wt/stemp/">SN Template</a></li>
+                        <li><a href="/wt/mymemory/">Mymemory</a></li>
+                        <li><a href="/wt/sptts/">Santali TTS</a></li>
                     </ul>
                 </li>
                 <li><a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a></li>
@@ -47,9 +48,9 @@
   <a href="/wt">ᱚᱲᱟᱜ</a>
   <a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a>
   <div class="dropdown">
-    <a href="#tools" class="dropdown-toggle" onclick="toggleDropdown(event)">ᱥᱟᱯᱟᱵ ᱠᱚ <span class="drop-u"><img width="20" height="20" src="https://img.icons8.com/ios/20/circled-chevron-down.png" alt="circled-chevron-down"/></span> </a>
+    <a href="#tools" class="dropdown-toggle" onclick="toggleDropdown(event)">ᱥᱟᱯᱟᱵ ᱠᱚ <span class="drop-u"><img width="20" height="20" src="https://img.icons8.com/ios/50/circled-chevron-down.png" alt="circled-chevron-down"/></span> </a>
     <ul class="dropdown-content">
-      <li><a href="/wt/search/">Check Word</a></li>
+        <li><a href="/wt/search/">Check Word</a></li>
         <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
         <li><a href="/wt/itemp/">Interactive Template</a></li>
         <li><a href="/wt/temp/">Wiktionary Template</a></li>
@@ -64,25 +65,42 @@
 <div class="overlay" id="overlay"></div>
 
   <main>
-    <section class="search-section">
-      <h2>ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ ᱨᱮ ᱥᱮᱸᱫᱽᱨᱟ</h2>
-      <form name="basicForm" onSubmit="return basicSearch();">
-        <div class="form-control">
-          <label for="searchterms">ᱟᱹᱲᱟᱹ ᱚᱞ ᱢᱮ:</label>
-          <input type="text" id="searchterms" name="searchterms" list="santaliwt" placeholder="ᱱᱚᱰᱮ ᱟᱢᱟᱜ ᱟᱹᱲᱟᱹ ᱚᱞ ᱢᱮ" />
-          <datalist id="santaliwt"></datalist>
+    <section class="hero-section">
+        <div class="hero-content">
+          <h1>Welcome to the Santali Wiktionary Search</h1>
+          <p>Search for terms, learn, and contribute to the knowledge repository.</p>
+          <form class="search-form js-search-form">
+            <input 
+              type="search" 
+              class="search-input js-search-input" 
+              placeholder="Type a keyword and press Enter to search" 
+              autofocus>
+            <button type="submit" class="search-btn">Search</button>
+          </form>
         </div>
-        <button type="submit" class="submit-btn">ᱥᱮᱸᱫᱽᱨᱟ</button>
-        <input type="button" class="reset-btn" value="ᱤᱬᱤᱡᱽ ᱢᱮ" onclick="this.form.reset();" />
-      </form>
-    </section>
+      </section>
+  
+      <section class="search-results-section">
+        <div class="loading-indicator">
+          <div class="sk-chase js-spinner hidden">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+          </div>
+        </div>
+        <div class="search-results js-search-results"></div>
+      </section>
   </main>
 
   <footer>
     <p> <span class="copyrt">©</span> 2024 <a href="https://olbaha.blogspot.com/" target="_blank" rel="noopener">Santali Tools</a>. All Rights Reserved.</p>
   </footer>
-
-  <script src="script.js"></script>
+<!-- [ JavaScript ] -->
+  <script src="../layout/js/uiux.js"></script>
+  <script src="js/search.js"></script>
 </body>
 
 </html>
