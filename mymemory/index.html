@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sat">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</title>
+  <link rel="stylesheet" href="../layout/css/layout.css">
+  <link rel="stylesheet" href="css/mymemory.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="mobile-header">
+        <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</button>
+        <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
+    </div>
+    <div class="desktop-header">
+        <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
+        <nav>
+            <ul class="desktop-menu">
+                <li><a href="/wt">ᱚᱲᱟᱜ</a></li>
+                <li><a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a></li>
+                <li class="dropdown">
+                    <a href="#tools">ᱥᱟᱯᱟᱵ ᱠᱚ</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/wt/search/">Check Word</a></li>
+                      <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
+                      <li><a href="/wt/itemp/">Interactive Template</a></li>
+                      <li><a href="/wt/temp/">Wiktionary Template</a></li>
+                      <li><a href="/wt/stemp/">SN Template</a></li>
+                      <li><a href="/wt/mymemory/">Mymemory</a></li>
+                      <li><a href="/wt/sptts/">Santali TTS</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="mobile-menu" class="mobile-menu">
+  <button id="close-menu" class="close-button">X</button>
+  <!-- Add your menu items here -->
+  <a href="/wt">ᱚᱲᱟᱜ</a>
+  <a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a>
+  <div class="dropdown">
+    <a href="#tools" class="dropdown-toggle" onclick="toggleDropdown(event)">ᱥᱟᱯᱟᱵ ᱠᱚ <span class="drop-u"><img width="20" height="20" src="https://img.icons8.com/ios/1600/FFFFFF/circled-chevron-down.png" alt="circled-chevron-down"/></span> </a>
+    <ul class="dropdown-content">
+      <li><a href="/wt/search/">Check Word</a></li>
+        <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
+        <li><a href="/wt/itemp/">Interactive Template</a></li>
+        <li><a href="/wt/temp/">Wiktionary Template</a></li>
+        <li><a href="/wt/stemp/">SN Template</a></li>
+        <li><a href="/wt/mymemory/">Mymemory</a></li>
+        <li><a href="/wt/sptts/">Santali TTS</a></li>
+    </ul>
+</div>
+  <a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+  <main>
+    <!-- [ Your content goes here... ] -->
+    <div class="container">
+        <h1>English to Santali Translator</h1>
+
+        <!-- Main Translation Section -->
+        <div class="section">
+            <label for="text-to-translate">Enter English text to translate:</label>
+            <textarea id="text-to-translate" placeholder="Type here..."></textarea>
+            
+            <!-- Button Group (Translate and Copy buttons in one row) -->
+            <div class="button-group">
+                <button onclick="translateText()">Translate</button>
+                <button id="copyButton" onclick="copyText()">Copy to Clipboard</button>
+            </div>
+
+            <!-- Translated Text Output -->
+            <div id="translated-text" class="output"></div>
+            <p id="copy-feedback"></p>
+            <p id="error-message"></p>
+        </div>
+
+        <!-- Send Translation Section -->
+        <div class="send-translation-section">
+            <h2>Send Translation to MyMemory</h2>
+            <label for="text">Enter text for correction:</label>
+            <textarea id="text" placeholder="Enter text you want to send..."></textarea>
+
+            <label for="translation">Enter translation:</label>
+            <textarea id="translation" placeholder="Enter the correct translation..."></textarea>
+            
+            <button onclick="sendTranslation()">Send Correction</button>
+        </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p> <span class="copyrt">©</span> 2024 <a href="https://olbaha.blogspot.com/" target="_blank" rel="noopener">Santali Tools</a>. All Rights Reserved.</p>
+  </footer>
+
+  <!-- [ JavaScript ] -->
+  <script src="../layout/js/layout.js"></script>
+  <script src="js/mymemory.js"></script>
+
+</body>
+</html>
