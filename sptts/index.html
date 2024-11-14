@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Santali TTS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sptts.css">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/Prasanta-Hembram/Santali-Wiktionary-Tools/refs/heads/main/Santali%20Psedo%20TTS/css/topcoat-mobile-light.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">ᱚᱱᱞᱟᱭᱤᱱ ᱥᱟᱱᱛᱟᱲᱤ TTS</div>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Convert Text to Speech Effortlessly!</h2>
+            <p class="description">Paste text, choose a voice, and let your words come to life with our powerful TTS tool.</p>
+        </section>
+        <section class="content">
+            <div class="text-box">
+                <textarea id="ttsInput" placeholder="Paste your text here..."></textarea>
+            </div>
+            <div class="options">
+                <label>
+                    <span>Choose Voice:</span>
+                    <select id="select-voice">
+                        <option value="1">UK Female</option>
+                        <option value="2">UK Male</option>
+                        <option value="3">US Female</option>
+                        <option value="4">US Male</option>
+                        <option value="5">Australian Female</option>
+                        <option value="6">Dutch Female</option>
+                        <option value="8">Japanese Female</option>
+                        <option value="9">Korean Female</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Set Speed:</span>
+                    <input id="select-speed" type="range" min="0.5" max="1.5" step="0.1" value="1">
+                </label>
+            </div>
+            <div class="buttons">
+                <button id="stop-button" class="button">Stop</button>
+                <button id="speak-button" class="button primary">Speak</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Online Santali TTS. Powered by <a href="//responsivevoice.org/" target="_blank">ResponsiveVoice</a>.</p>
+    </footer>
+    <script src="js/sptts.js"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <script src="https://raw.githubusercontent.com/Prasanta-Hembram/Santali-Wiktionary-Tools/refs/heads/main/Santali%20Psedo%20TTS/js/app.js"></script>
+    <script src="https://raw.githubusercontent.com/Prasanta-Hembram/Santali-Wiktionary-Tools/refs/heads/main/Santali%20Psedo%20TTS/js/mousetrap.min.js"></script>
+    <script src="https://raw.githubusercontent.com/Prasanta-Hembram/Santali-Wiktionary-Tools/refs/heads/main/Santali%20Psedo%20TTS/js/torom.js"></script>
+</body>
+</html>

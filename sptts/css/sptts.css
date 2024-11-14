@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg, #5372F0, #6a86f1);
+    color: white;
+    padding: 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.description {
+    color: #666;
+    font-size: 16px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.text-box textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.options label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button.primary {
+    background: linear-gradient(90deg, #5372F0, #6a86f1);
+    color: white;
+}
+
+.button.primary:hover {
+    background: linear-gradient(90deg, #6a86f1, #5372F0);
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #f1f1f1;
+    font-size: 14px;
+}
+
+footer a {
+    color: #5372F0;
+    text-decoration: none;
+}
