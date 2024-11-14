@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="sat">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</title>
+  <link rel="stylesheet" href="../layout/css/layout.css">
+  <link rel="stylesheet" href="css/stemp.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="mobile-header">
+      <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</button>
+      <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
+    </div>
+    <div class="desktop-header">
+        <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
+        <nav>
+            <ul class="desktop-menu">
+                <li><a href="/wt">ᱚᱲᱟᱜ</a></li>
+                <li><a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a></li>
+                <li class="dropdown">
+                    <a href="#tools">ᱥᱟᱯᱟᱵ ᱠᱚ</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/wt/search/">Check Word</a></li>
+                      <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
+                      <li><a href="/wt/itemp/">Interactive Template</a></li>
+                      <li><a href="/wt/temp/">Wiktionary Template</a></li>
+                      <li><a href="/wt/stemp/">SN Template</a></li>
+                      <li><a href="/wt/mymemory/">Mymemory</a></li>
+                      <li><a href="/wt/sptts/">Santali TTS</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="mobile-menu" class="mobile-menu">
+  <button id="close-menu" class="close-button">X</button>
+  <!-- Add your menu items here -->
+  <a href="/wt">ᱚᱲᱟᱜ</a>
+  <a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a>
+  <div class="dropdown">
+    <a href="#tools" class="dropdown-toggle" onclick="toggleDropdown(event)">ᱥᱟᱯᱟᱵ ᱠᱚ <span class="drop-u"><img width="20" height="20" src="https://img.icons8.com/ios/1600/FFFFFF/circled-chevron-down.png" alt="circled-chevron-down"/></span> </a>
+    <ul class="dropdown-content">
+      <li><a href="/wt/search/">Check Word</a></li>
+        <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
+        <li><a href="/wt/itemp/">Interactive Template</a></li>
+        <li><a href="/wt/temp/">Wiktionary Template</a></li>
+        <li><a href="/wt/stemp/">SN Template</a></li>
+        <li><a href="/wt/mymemory/">Mymemory</a></li>
+        <li><a href="/wt/sptts/">Santali TTS</a></li>
+    </ul>
+</div>
+  <a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+  <main>
+  <form name="sources" id="form">
+    <!-- Toggle Switch -->
+    <div class="switch-control">
+      <label for="categorySwitch" id="switch-label-name">Kingdom : 
+        <span id="categoryLabel">Plant Kingdom</span>
+      </label>
+      <label class="switch">
+        <input type="checkbox" id="categorySwitch" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <hr /> <br /> <!-- End of Kingdom section -->
+    <!-- Word -->
+    <div class="form-control">
+      <label for="Sword" id="label-name">Word (mandatory, e.g., ᱥᱟᱱᱛᱟᱲᱤ)</label>
+      <input type="text" id="Sword" placeholder="Enter a Word" oninput="updateFirstCharacter();" required />
+    </div>
+
+    <!-- Meaning -->
+    <div class="form-control">
+      <label for="Smeaning" id="label-name">Meaning (mandatory, e.g., ᱥᱟᱱᱛᱟᱲ ᱦᱚᱲ ᱠᱚᱣᱟᱜ ᱯᱟᱹᱨᱥᱤ ᱠᱟᱱᱟ)</label>
+      <input type="text" id="Smeaning" placeholder="Enter a Meaning" required />
+    </div>
+
+    <!-- Audio -->
+    <div class="form-control">
+      <label for="Saudio" id="label-name">Audio filename (optional) e.g., ᱝ - Santali script.ogg</label>
+      <input type="text" id="Saudio" placeholder="Audio filename" />
+    </div>
+
+    <!-- IPA Pronunciation -->
+    <div class="form-control">
+      <label for="proipa" id="label-name">IPA Pronunciation (optional)</label>
+      <input type="text" id="proipa" placeholder="IPA Pronunciation" />
+    </div>
+
+    <!-- Scientific Name -->
+    <div class="form-control">
+      <label for="sn" id="label-name">Scientific Name (optional)</label>
+      <input type="text" id="sn" placeholder="Scientific Name" />
+    </div>
+
+    <!-- Common Name -->
+    <div class="form-control">
+      <label for="cn" id="label-name">Common Name (optional)</label>
+      <input type="text" id="cn" placeholder="Common Name" />
+    </div>
+
+    <!-- English -->
+    <div class="form-control">
+      <label for="english" id="label-name">English Name (mandatory)</label>
+      <input type="text" id="english" placeholder="English Name" />
+    </div>
+
+    <!-- Odia -->
+    <div class="form-control">
+      <label for="odia" id="label-name">Odia Name (optional)</label>
+      <input type="text" id="odia" placeholder="Odia Name" />
+    </div>
+
+    <!-- Hindi -->
+    <div class="form-control">
+      <label for="hindi" id="label-name">Hindi Name (optional)</label>
+      <input type="text" id="hindi" placeholder="Hindi Name" />
+    </div>
+
+    <!-- Bangla -->
+    <div class="form-control">
+      <label for="bangla" id="label-name">Bangla Name (optional)</label>
+      <input type="text" id="bangla" placeholder="Bangla Name" />
+    </div>
+
+    <!-- Assamese -->
+    <div class="form-control">
+      <label for="assamese" id="label-name">Assamese Name (optional)</label>
+      <input type="text" id="assamese" placeholder="Assamese Name" />
+    </div>
+
+    <!-- First Character (Auto-populated) -->
+    <div class="form-control">
+      <label for="firstC" id="label-name">First Character (auto-filled)</label>
+      <input type="text" id="firstC" placeholder="First Character" readonly />
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-control-inputB">
+      <input type="button" value="Generate" id="createButton" onclick="writeCode();" />
+      <div class="button-container">
+        <input type="button" value="Copy" id="copyButton" onclick="copy()" />
+        <input type="button" value="Copy & Go Wiktionary" id="copyRedirect" />
+      </div>
+      <input type="button" name="reset_form" value="Reset Form" id="resetButton" onclick="this.form.reset(); updateFirstCharacter();" />
+    </div>
+
+    <!-- Toast -->
+    <div id="toast-container"></div>
+
+    <!-- Output -->
+    <div class="form-control">
+      <label for="comment">Your Text</label>
+      <textarea name="comment" id="outputForm" placeholder="Press Generate Button"></textarea>
+    </div>
+  </form>
+
+  </main>
+
+  <footer>
+    <p> <span class="copyrt">©</span> 2024 <a href="https://olbaha.blogspot.com/" target="_blank" rel="noopener">Santali Tools</a>. All Rights Reserved.</p>
+  </footer>
+
+  <script src="../layout/js/layout.js"></script>
+  <script src="js/stemp.js"></script>
+</body>
+</html>

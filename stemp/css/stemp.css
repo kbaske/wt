@@ -1,0 +1,228 @@
+/* Styling the Form */
+form {
+    background-color: #ffffff; /* White background for form */
+    max-width: 500px;
+    margin: 40px auto 110px; /* Centered with balanced top and bottom margin */
+    padding: 30px 25px; /* Uniform padding for space inside form */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Styling form-control class */
+.form-control {
+    text-align: left;
+    margin-bottom: 20px; /* Consistent bottom margin between controls */
+}
+
+/* Styling Labels */
+.form-control label {
+    display: block;
+    margin-bottom: 8px; /* Slightly increased for clarity */
+    font-weight: 600;
+    color: #3a3a3a; /* Dark grey for labels */
+}
+
+/* Input and Select Fields */
+.form-control input,
+.form-control select {
+    border: 1.5px solid #cfd8dc; /* Soft grey border */
+    border-radius: 6px;
+    padding: 10px 12px; /* Reduced padding for a more compact appearance */
+    font-size: 1rem;
+    display: block;
+    width: calc(100% - 24px); /* Accounts for padding */
+    color: #3a3a3a;
+}
+
+.form-control input:focus,
+.form-control select:focus {
+    border-color: #5c6bc0; /* Muted purple on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(92, 107, 192, 0.3);
+}
+
+/* Radio Button and Checkbox Styling */
+.form-control input[type="radio"],
+.form-control input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+    margin-right: 8px;
+}
+
+/* Styling Buttons */
+form button {
+    background-color: #00bfa5; /* Minty teal button */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 0; /* Balanced padding */
+    width: 100%;
+    margin: 30px 0 20px; /* Added consistent top and bottom spacing */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #00897b; /* Darker teal on hover */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center buttons in the container */
+    gap: 10px; /* Spacing between buttons */
+}
+
+/* Styling Input Fields inside form-control-inputB */
+.form-control-inputB input {
+    background-color: #00bfa5; /* Minty teal background */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    padding: 10px;
+    display: block;
+    width: 60%;
+    margin: 10px auto; /* Centered with balanced margin */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-control-inputB input:hover {
+    background-color: #00897b; /* Darker teal on hover */
+}
+
+/* Styling Textarea */
+.form-control textarea {
+    background-color: #e3f2fd; /* Light pastel blue */
+    border: 1.5px solid #cfd8dc; /* Soft grey border */
+    border-radius: 5px;
+    padding: 12px;
+    display: block;
+    width: calc(100% - 24px); /* Accounts for padding */
+    height: 200px;
+    font-family: inherit;
+    color: #3a3a3a;
+    resize: vertical;
+}
+
+/* Reset Button Styling */
+.form-control-reset input {
+    background-color: #ff5252; /* Bright coral red */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    padding: 10px;
+    display: block;
+    width: 40%;
+    margin: 15px auto; /* Centered with balanced margin */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.form-control-reset input:hover {
+    background-color: #d32f2f; /* Darker coral red on hover */
+}
+
+/* Toast container styling */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Toast message styling */
+.toast {
+    min-width: 200px;
+    padding: 12px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 0.5s forwards, fadeOut 0.5s 3s forwards;
+}
+
+/* Switch to slide */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    flex-shrink: 0; /* Keeps the switch at its natural size */
+    margin-left: auto; /* Moves it to the center between the two sections */
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #00bfa5;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+
+.switch-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spread items across the row */
+    gap: 10px; /* Add spacing between elements */
+}
+
+#switch-label-name {
+    color: #3a3a3a; /* Dark grey for labels */
+    flex-shrink: 0; /* Prevent the label from shrinking */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+#categoryLabel {
+    margin-left: 10px; /* Add spacing between the label and category */
+    text-align: start;
+    font-weight: 600;
+    color: #3a3a3a;
+}
