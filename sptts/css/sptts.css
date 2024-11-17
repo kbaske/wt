@@ -124,7 +124,7 @@ section button:hover {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 40px;
     margin-top: 20px;
 }
 
