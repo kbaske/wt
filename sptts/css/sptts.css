@@ -153,11 +153,6 @@ section button:hover {
 
 /* Mobile Responsive Styles */
 @media (max-width: 767px) {
-    body {
-        font-size: 14px;
-        padding: 10px;
-    }
-
     h1 {
         font-size: 28px;
         letter-spacing: 1px;
