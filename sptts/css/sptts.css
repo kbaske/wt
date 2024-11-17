@@ -32,7 +32,7 @@ section:hover {
 }
 */
 textarea {
-    width: 95%;
+    width: 80%;
     min-height: 120px;
     display: block;
     margin: 15px auto;
