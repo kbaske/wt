@@ -137,18 +137,18 @@ section button:hover {
 }
 
 .license {
-    width:300px;
-    vertical-align:top;
+    width: 300px;
+    vertical-align: top;
     font-family: Arial;
-    font-size:9pt;
-    margin:0 auto;
+    font-size: 9pt;
+    margin: 0 auto;
     line-height: normal;
     color: #000;
 }
 
 .license img {
-    float:left;
-    padding-right:2px;
+    float: left;
+    padding-right: 2px;
 }
 
 /* Mobile Responsive Styles */
@@ -160,21 +160,25 @@ section button:hover {
 
     section {
         width: 100%;
+        margin: 1rem auto 3rem auto;
+        padding: 20px;
     }
 
     textarea {
-        width: 90%;
+        width: 95%;
         font-size: 16px;
+        padding: 8px;
     }
 
     #customise-options {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
     }
 
     #select-voice, #select-speed {
         width: 80%;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .button-row {
@@ -182,20 +186,25 @@ section button:hover {
     }
 
     section button {
-        width: 80%;
-        padding: 12px 20px;
+        width: 100%;
+        padding: 10px 15px;
         font-size: 14px;
     }
 
     #links ul {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
+    }
+
+    #links img {
+        width: 50px;
+        height: 50px;
     }
 
     .license {
-        width: 80%;
+        width: 90%;
         font-size: 8pt;
-        margin: 0 auto;
+        margin: 1rem auto;
     }
 
     .license img {
