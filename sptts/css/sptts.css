@@ -19,7 +19,7 @@ h1 {
 
 section {
     max-width: 600px;
-    width: 90%;
+    width: 80%;
     margin: 2rem auto 6.9rem auto;
     background: white;
     padding: 30px;
@@ -30,7 +30,7 @@ section {
 }
 
 textarea {
-    width: 90%;
+    width: 80%;
     min-height: 120px;
     display: block;
     margin: 15px auto;
