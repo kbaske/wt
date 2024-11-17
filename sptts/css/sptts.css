@@ -19,18 +19,21 @@ h1 {
 
 section {
     max-width: 600px;
-    width: 80%;
     margin: 2rem auto 6.9rem auto;
     background: white;
-    padding: 30px;
+    padding: 30px 25px; /* Uniform padding for space inside form */
     border-radius: 20px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
 }
 
+section:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
 textarea {
-    width: 80%;
+    width: 70%;
     min-height: 120px;
     display: block;
     margin: 15px auto;
@@ -154,7 +157,7 @@ section button:hover {
     padding-right: 2px;
 }
 
-/* Mobile Responsive Styles */
+/* Mobile Responsive Styles 
 @media (max-width: 767px) {
     h1 {
         font-size: 28px;
@@ -216,3 +219,4 @@ section button:hover {
         padding-right: 5px;
     }
 }
+*/
