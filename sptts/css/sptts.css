@@ -79,7 +79,7 @@ select, label, input {
 }
 
 #select-voice, #select-speed {
-    width: 70%;
+    width: 60%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
