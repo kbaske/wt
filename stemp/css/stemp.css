@@ -1,7 +1,7 @@
 /* Styling the Form */
 form {
     background-color: #ffffff; /* White background for form */
-    max-width: 500px;
+    max-width: 800px;
     margin: 40px auto 110px; /* Centered with balanced top and bottom margin */
     padding: 30px 25px; /* Uniform padding for space inside form */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -35,7 +35,7 @@ form:hover {
     padding: 10px 12px; /* Reduced padding for a more compact appearance */
     font-size: 1rem;
     display: block;
-    width: calc(100% - 24px); /* Accounts for padding */
+    width: calc(100% - 25px); /* Accounts for padding */
     color: #3a3a3a;
 }
 
@@ -106,7 +106,7 @@ form button:hover {
     border-radius: 5px;
     padding: 12px;
     display: block;
-    width: calc(100% - 24px); /* Accounts for padding */
+    width: calc(100% - 25px); /* Accounts for padding */
     height: 200px;
     font-family: inherit;
     color: #3a3a3a;
