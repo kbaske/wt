@@ -92,7 +92,12 @@
   .no-results-message {
     font-size: 1.2rem;
     color: #FF4444;
-    background-color: #FFEBEE; /* Optional */
     text-align: center;
-    margin: 1rem 0 6.9rem 0;
+    margin: 1rem auto 6.9rem auto;
+    max-width: 800px;
+    padding: 2rem;
+    background: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #D6D6D6;
   }
