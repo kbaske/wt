@@ -1,65 +1,311 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sat">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Translation Tools</title>
+  <title>ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</title>
+  <link rel="stylesheet" href="../layout/css/layout.css">
   <link rel="stylesheet" href="css/dics.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki:wght@400..700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="header">
-    <a href="../index.html" class="home-link">Home</a>
-    <h1>Translation Tools</h1>
-    <p class="instruction">Use one tool at a time to avoid conflicts.</p>
-  </div>
 
-  <!-- MyMemory Tool -->
-  <section class="translation-tool">
-    <h2>MyMemory Translation</h2>
-    <div class="tool-container">
-      <textarea id="mymemory-input" placeholder="Enter text (English)"></textarea>
-      <textarea id="mymemory-output" placeholder="Translation" readonly></textarea>
-      <div class="controls">
-        <button id="mymemory-translate">Translate</button>
-        <button id="mymemory-clear">Clear</button>
+<body>
+  <header>
+    <div class="mobile-header">
+        <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</button>
+        <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
+    </div>
+    <div class="desktop-header">
+        <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
+        <nav>
+            <ul class="desktop-menu">
+                <li><a href="/wt">ᱚᱲᱟᱜ</a></li>
+                <li><a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a></li>
+                <li class="dropdown">
+                    <a href="#tools">ᱥᱟᱯᱟᱵ ᱠᱚ</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/wt/search/">Check Word</a></li>
+                      <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
+                      <li><a href="/wt/itemp/">Interactive Template</a></li>
+                      <li><a href="/wt/temp/">Wiktionary Template</a></li>
+                      <li><a href="/wt/stemp/">SN Template</a></li>
+                      <li><a href="/wt/mymemory/">Mymemory</a></li>
+                      <li><a href="/wt/sptts/">Santali TTS</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="mobile-menu" class="mobile-menu">
+  <button id="close-menu" class="close-button">X</button>
+  <!-- Add your menu items here -->
+  <a href="/wt">ᱚᱲᱟᱜ</a>
+  <a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a>
+  <div class="dropdown">
+    <a href="#tools" class="dropdown-toggle" onclick="toggleDropdown(event)">ᱥᱟᱯᱟᱵ ᱠᱚ <span class="drop-u"><img width="20" height="20" src="https://img.icons8.com/ios/1600/FFFFFF/circled-chevron-down.png" alt="circled-chevron-down"/></span> </a>
+    <ul class="dropdown-content">
+      <li><a href="/wt/search/">Check Word</a></li>
+        <li><a href="/wt/dics/">Dictionary/Translation Search</a></li>
+        <li><a href="/wt/itemp/">Interactive Template</a></li>
+        <li><a href="/wt/temp/">Wiktionary Template</a></li>
+        <li><a href="/wt/stemp/">SN Template</a></li>
+        <li><a href="/wt/mymemory/">Mymemory</a></li>
+        <li><a href="/wt/sptts/">Santali TTS</a></li>
+    </ul>
+</div>
+  <a href="https://olbaha.blogspot.com/p/contact.html" target="_blank" rel="noopener">ᱥᱟᱹᱜᱟᱹᱭ ᱞᱮᱯᱮ</a>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+  <main>
+    <!-- [ Google Translate... ] -->
+    <div class="container">
+      <h2>Google Translate</h2>
+      <hr /><br />
+      <form id="googleTranslatorForm" method="GET" target="_blank" action="https://translate.google.com/">
+        <div class="language-panel">
+          <select id="sourceLang" name="sl" title="Source Language">
+            <option value="auto">Auto-Detect</option>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="bn">Bengali</option>
+            <option value="sat">Santali</option>
+            <!-- Add more languages as needed -->
+          </select>
+          <button type="button" class="switch-button" id="switchLangBtn">⇄</button>
+          <select id="targetLang" title="Target Language" name="tl">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="bn">Bengali</option>
+            <option value="sat">Santali</option>
+            <!-- Add more languages as needed -->
+          </select>
+        </div>
+        <div class="translate-panel">
+          <div>
+            <label for="textToTranslate">Text to Translate:</label>
+            <textarea id="textToTranslate" name="text" rows="5" placeholder="Enter text here..."></textarea>
+            <br /><br />
+          </div>
+      <button type="submit" id="translate-button">Translate</button>
+      <br /><br />
+      </div>
+      </form>
+    </div>
+    <!-- Glosbe Dictionary & Translation -->
+    <div class="container">
+      <h2>Search in Glosbe</h2>
+      <hr /><br />
+      <div class="language-panel">
+        <select id="source-lang" title="Source Language">
+          <option value="en" data-script="^[a-zA-Z .,!?'\;:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">English</option>
+          <option value="sat" data-script="^[\u1C50-\u1C7F ,!?\';@#$%^&*()_+={}\\[\\]|<>/`]+$">Santali</option>
+          <option value="hi" data-script="^[\u0900-\u097F ,!?\';:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Hindi</option>
+          <option value="bn" data-script="^[\u0980-\u09FF ,!?\';:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Bengali</option>
+          <option value="or" data-script="^[\u0B00-\u0B7F ,!?\';:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Odia</option>
+          <option value="fr" data-script="^[a-zA-ZÀ-ÿ .,!?'\;:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">French</option>
+          <option value="es" data-script="^[a-zA-ZÑñÁÉÍÓÚÜáéíóúü .,!?'\;:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Spanish</option>
+        </select>
+        <button class="switch-button" id="switch-lang">&#x21C4;</button>
+        <select id="target-lang" title="Target Language">
+          <option value="sat" selected>Santali</option>
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="bn">Bengali</option>
+          <option value="or">Odia</option>
+          <option value="fr">French</option>
+          <option value="es">Spanish</option>
+        </select>
+      </div>
+      <div class="search-panel">
+        <textarea id="search-text" placeholder="Enter text to search in Glosbe"></textarea>
+        <div class="error-message" id="error-message"></div>
+        <br>
+        <button id="search-button">Search</button>
+        <br /><br />
       </div>
     </div>
-  </section>
+    <!-- Glosbe Translate -->
+    <div class="container">
+      <h2>Translate in Glosbe</h2>
+      <hr /><br />
+      <div class="language-panel">
+        <select id="source-langT" title="Source Language">
+          <option value="en" data-script="^[a-zA-Z .,!?'\;:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">English</option>
+          <option value="sat" data-script="^[\u1C50-\u1C7F ,!?\';@#$%^&*()_+={}\\[\\]|<>/`]+$">Santali</option>
+          <option value="hi" data-script="^[\u0900-\u097F ,!?\';:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Hindi</option>
+          <option value="bn" data-script="^[\u0980-\u09FF ,!?\';:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Bengali</option>
+          <option value="or" data-script="^[\u0B00-\u0B7F ,!?\';:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Odia</option>
+          <option value="fr" data-script="^[a-zA-ZÀ-ÿ .,!?'\;:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">French</option>
+          <option value="es" data-script="^[a-zA-ZÑñÁÉÍÓÚÜáéíóúü .,!?'\;:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Spanish</option>
+        </select>
+        <button class="switch-button" id="switch-langT">&#x21C4;</button>
+        <select id="target-langT" title="Target Language">
+          <option value="sat" selected>Santali</option>
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="bn">Bengali</option>
+          <option value="or">Odia</option>
+          <option value="fr">French</option>
+          <option value="es">Spanish</option>
+        </select>
+      </div>
+      <div class="search-panel">
+        <textarea id="search-textT" placeholder="Enter text to translate in Glosbe"></textarea>
+        <div class="error-message" id="error-messageT"></div>
+        <br>
+        <button id="search-buttonT">Translate</button>
+        <br /><br />
+      </div>
+    </div>
 
-  <!-- Glosbe Tool -->
-  <section class="translation-tool">
-    <h2>Glosbe Translation</h2>
-    <form id="glosbe-form" method="GET" target="_blank">
-      <textarea id="glosbe-source-lang" name="sourceLang" placeholder="Source language (e.g., en)">en</textarea>
-      <textarea id="glosbe-target-lang" name="targetLang" placeholder="Target language (e.g., sat)">sat</textarea>
-      <textarea id="glosbe-text" name="text" placeholder="Enter text">Cow</textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </section>
+    <!-- English Wiktionary -->
+      <section class="search-section">
+      <h2>ᱤᱝᱞᱤᱥ ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ ᱨᱮ ᱥᱮᱸᱫᱽᱨᱟ</h2>
+      <hr /><br />
+      <form name="basicForm" onSubmit="return basicSearch();">
+        <div class="form-control">
+          <label for="searchterms">ᱟᱹᱲᱟᱹ ᱚᱞ ᱢᱮ:</label>
+          <input type="text" id="searchterms" placeholder="ᱱᱚᱰᱮ ᱟᱢᱟᱜ ᱟᱹᱲᱟᱹ ᱚᱞ ᱢᱮ" />
+          <br /><br />
+        </div>
+        <button type="submit" class="submit-btn">ᱥᱮᱸᱫᱽᱨᱟ</button>
+        <input type="button" class="reset-btn" value="ᱤᱬᱤᱡᱽ ᱢᱮ" onclick="this.form.reset();" />
+        <br /><br />
+      </form>
+      </section>
 
-  <!-- OmegaWiki Tool -->
-  <section class="translation-tool">
-    <h2>OmegaWiki Search</h2>
-    <form id="omegawiki-form" method="GET" target="_blank">
-      <textarea id="omegawiki-input" placeholder="Enter text"></textarea>
-      <button type="submit">Search</button>
-    </form>
-  </section>
+    <!-- Apertium Translation -->
+    <div class="container">
+      <h2>Translate in Apertium</h2>
+      <hr /><br />
+      <div class="language-panel">
+        <select id="source-langA" title="Source Language">
+          <option value="en" data-script="^[a-zA-Z .,!?'\;:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">English</option>
+          <option value="sat" data-script="^[\u1C50-\u1C7F ,!?\';@#$%^&*()_+={}\\[\\]|<>/`]+$">Santali</option>
+          <option value="hi" data-script="^[\u0900-\u097F ,!?\';:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Hindi</option>
+          <option value="bn" data-script="^[\u0980-\u09FF ,!?\';:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Bengali</option>
+          <option value="or" data-script="^[\u0B00-\u0B7F ,!?\';:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Odia</option>
+          <option value="fr" data-script="^[a-zA-ZÀ-ÿ .,!?'\;:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">French</option>
+          <option value="es" data-script="^[a-zA-ZÑñÁÉÍÓÚÜáéíóúü .,!?'\;:-@#$%^&*()_+={}\\[\\]|<>/~`]+$">Spanish</option>
+        </select>
+        <button class="switch-button" id="switch-langA">&#x21C4;</button>
+        <select id="target-langA" title="Target Language">
+          <option value="sat" selected>Santali</option>
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="bn">Bengali</option>
+          <option value="or">Odia</option>
+          <option value="fr">French</option>
+          <option value="es">Spanish</option>
+        </select>
+      </div>
+      <div class="search-panel">
+        <textarea id="search-textA" placeholder="Enter text to translate in Apertium"></textarea>
+        <div class="error-message" id="error-messageA"></div>
+        <br>
+        <button id="search-buttonA">Translate</button>
+        <br /><br />
+      </div>
+    </div>
 
-  <!-- Google Translate Tool -->
-  <section class="translation-tool">
-    <h2>Google Translate</h2>
-    <form id="google-form" method="GET" target="_blank">
-      <textarea id="google-input" placeholder="Enter text"></textarea>
-      <button type="submit">Search</button>
-    </form>
-  </section>
+    <!-- Talkking Dictionary -->
+    <div class="container">
+      <h2>Search in Talking Dictionary</h2>
+      <hr /><br />
+      <div class="search-panel">
+        <input type="text" id="searchInputTD" placeholder="Enter word to search" />
+        <br /><br />
+        <button onclick="searchWordTD()">Search</button>
+        <br /><br />
+      </div>
+    </div>
 
-  <!-- Footer -->
+    <h1>ᱱᱤᱛᱚᱜ ᱫᱷᱟᱹᱵᱤᱡ ᱥᱟᱱᱛᱟᱲᱤ ᱵᱟᱝᱮ ᱟᱫᱮᱨᱟᱠᱟᱫᱟᱜ</h1>
+    <!-- Not Available till now -->
+    <!-- Bing Translator -->
+    <div class="container">
+      <h2>Bing Translator</h2>
+      <hr /><br />
+      <form id="bingTranslatorForm" method="GET" target="_blank" action="https://www.bing.com/translator">
+        <div class="language-panel">
+          <select id="sourceLangB" name="from" title="Source Language">
+            <option value="auto">Auto-Detect</option>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="bn">Bengali</option>
+            <option value="sat">Santali</option>
+            <!-- Add more languages as needed -->
+          </select>
+          <button type="button" class="switch-button" id="switchLangBtnB">⇄</button>
+          <select id="targetLangB" title="Target Language" name="to">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="bn">Bengali</option>
+            <option value="sat">Santali</option>
+            <!-- Add more languages as needed -->
+          </select>
+        </div>
+        <div class="translate-panel">
+          <label for="textToTranslate">Text to Translate:</label>
+          <textarea id="textToTranslateB" name="text" rows="5" placeholder="Enter text here..."></textarea>
+          <br /><br />
+          <button type="submit" id="translate-buttonB">Translate</button>
+        </div>
+      <br />
+      </form>
+    </div>
+
+    <!-- Yendex Translate -->
+    <div class="container" id="yentrans">
+      <h2>Yandex Translate</h2>
+      <hr /><br />
+      <form id="yendexTranslatorForm" method="GET" target="_blank" action="https://translate.yandex.com/">
+        <div class="language-panel">
+          <select id="sourceLangY" name="source_lang" title="Source Language">
+            <option value="auto">Auto-Detect</option>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="bn">Bengali</option>
+            <option value="sat">Santali</option>
+            <!-- Add more languages as needed -->
+          </select>
+          <button type="button" class="switch-button" id="switchLangBtnY">⇄</button>
+          <select id="targetLangY" title="Target Language" name="target_lang">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="bn">Bengali</option>
+            <option value="sat">Santali</option>
+            <!-- Add more languages as needed -->
+          </select>
+        </div>
+        <div class="translate-panel">
+          <label for="textToTranslate">Text to Translate:</label>
+          <textarea id="textToTranslateY" name="text" rows="5" placeholder="Enter text here..."></textarea>
+          <br /><br />
+          <button type="submit" id="translate-buttonY">Translate</button>
+          <br /><br />
+      </div>
+      
+      </form>
+    </div>
+
+  </main>
+
   <footer>
-    <p>Help improve translations by contributing to tools like MyMemory!</p>
+    <p> <span class="copyrt">©</span> 2024 <a href="https://olbaha.blogspot.com/" target="_blank" rel="noopener">Santali Tools</a>. All Rights Reserved.</p>
   </footer>
 
+  <!-- [ JavaScript ] -->
+  <script src="../layout/js/layout.js"></script>
   <script src="js/dics.js"></script>
+
 </body>
 </html>
