@@ -24,17 +24,32 @@ function writeCode() {
     ? "[[Category:Wt/sat/ᱡᱟᱱᱣᱟᱨ]]"
     : "[[Category:Wt/sat/ᱫᱟᱨᱮ]]";
 
+  // New: Conditionally include audio section if Saudio is not blank
+  let audioSection = "";
+  if (Saudio.trim() !== "") {
+    audioSection = "[[File:" + Saudio + "]]\n";
+  }
+
+  // Adding here the helper function:
+  function bulletList(text) {
+    if (text.indexOf(",") !== -1) {
+      return text
+        .split(",")
+        .map((item) => "* " + item.trim())
+        .join("\n");
+    } else {
+      return "* " + text;
+    }
+  }
+
   // Output format
   const outputValue =
     "== ᱥᱟᱱᱛᱟᱲᱤ ==\n" +
     "=== ᱢᱮᱱᱮᱛ ===\n" +
-    Smeaning +
+    bulletList(Smeaning) +
     "\n" +
     "=== ᱥᱟᱰᱮ ===\n" +
-    "[[File:" +
-    Saudio +
-    "]]" +
-    "\n" +
+    audioSection +
     "=== ᱩᱪᱨᱟᱹᱲ ===\n{{Wt/sat/ᱩᱪᱨᱟᱹᱲ|" +
     proipa +
     "}}\n" +
@@ -44,24 +59,23 @@ function writeCode() {
     "|''" +
     sn +
     "'']]\n" +
-    "== ᱰᱤᱥᱣᱟᱹ ᱧᱩᱛᱩᱢ ==\n* " +
-    "[[" +
-    cn +
-    "]]\n" +
-    "== English ==\n* " +
-    english +
+    "== ᱫᱤᱥᱣᱟᱹ ᱧᱩᱛᱩᱢ ==\n" +
+    bulletList(cn) +
     "\n" +
-    "== ଓଡ଼ିଆ ==\n* " +
-    odia +
+    "== English ==\n" +
+    bulletList(english) +
     "\n" +
-    "== हिंदी ==\n* " +
-    hindi +
+    "== ଓଡ଼ିଆ ==\n" +
+    bulletList(odia) +
     "\n" +
-    "== বাংলা ==\n* " +
-    bangla +
+    "== हिंदी ==\n" +
+    bulletList(hindi) +
     "\n" +
-    "== অসমীয়া ==\n* " +
-    assamese +
+    "== বাংলা ==\n" +
+    bulletList(bangla) +
+    "\n" +
+    "== অসমীয়া ==\n" +
+    bulletList(assamese) +
     "\n" +
     "== ᱥᱟᱹᱠᱷᱭᱟᱹᱛ ==\n" +
     "* Campbell, A.; Macphail, R.M. (1984). Campbell's English-Santali Dictionary. Eastern Books. ISBN 978-0-8364-1137-9.\n" +
