@@ -32,7 +32,7 @@ async function handleSubmit(event) {
 }
 
 async function searchWikipedia(searchQuery) {
-  const endpoint = `https://incubator.wikimedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=10&srsearch=intitle:Wt/sat/${searchQuery}`;
+  const endpoint = `https://sat.wiktionary.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=10&srsearch=${searchQuery}`;
   const response = await fetch(endpoint);
   if (!response.ok) throw Error(response.statusText);
   return await response.json();
@@ -41,7 +41,7 @@ async function searchWikipedia(searchQuery) {
 function displayResults(results) {
   const searchResults = document.querySelector(".js-search-results");
   results.query.search.forEach((result) => {
-    const url = `https://incubator.wikimedia.org/?curid=${result.pageid}`;
+    const url = `https://sat.wiktionary.org/?curid=${result.pageid}`;
     searchResults.insertAdjacentHTML(
       "beforeend",
       `<div class="result-item">

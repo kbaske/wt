@@ -20,9 +20,7 @@ function writeCode() {
     categorySwitch = document.getElementById("categorySwitch").checked;
 
   // Determine the category based on the toggle
-  const category = categorySwitch
-    ? "[[Category:Wt/sat/ᱡᱟᱱᱣᱟᱨ]]"
-    : "[[Category:Wt/sat/ᱫᱟᱨᱮ]]";
+  const category = categorySwitch ? "[[Category:ᱡᱟᱱᱣᱟᱨ]]" : "[[Category:ᱫᱟᱨᱮ]]";
 
   // New: Conditionally include audio section if Saudio is not blank
   let audioSection = "";
@@ -50,7 +48,7 @@ function writeCode() {
     "\n" +
     "=== ᱥᱟᱰᱮ ===\n" +
     audioSection +
-    "=== ᱩᱪᱨᱟᱹᱲ ===\n{{Wt/sat/ᱩᱪᱨᱟᱹᱲ|" +
+    "=== ᱩᱪᱨᱟᱹᱲ ===\n{{ᱩᱪᱨᱟᱹᱲ|" +
     proipa +
     "}}\n" +
     "== ᱥᱟᱮᱬᱥᱤᱭᱟᱹ ᱧᱩᱛᱩᱢ ==\n* " +
@@ -88,24 +86,23 @@ function writeCode() {
     "* पसाद, स्वर्णलता (1988). संताली हिन्दी सब्दकोष [Santali Hindi Dictionary]. बिहार जन जातीय कल्याण शोध संस्थान रांची. \n" +
     "* पसाद, स्वर्णलता (1988). हिन्दी संताली सब्दकोष [Hindi Santali Dictionary]. बिहार जन जातीय कल्याण शोध संस्थान रांची. \n" +
     "=== ᱵᱟᱹᱲᱛᱤ ᱡᱚᱱᱚᱲ ===\n" +
-    "{{Wt/sat/ᱣᱤᱠᱤᱯᱤᱰᱤᱭᱟ}}\n" +
-    "[[Category:Wt/sat/" +
+    "{{ᱣᱤᱠᱤᱯᱤᱰᱤᱭᱟ}}\n" +
+    "[[Category:" +
     firstC +
     "]]\n" +
-    "[[Category:Wt/sat]]\n" +
-    "[[Category:Wt/sat/ᱟᱹᱰᱤ ᱠᱷᱟᱴᱚ ᱚᱞ ᱥᱟᱦᱴᱟ]]\n" +
-    "[[Category:Wt/sat/ᱢᱮᱱᱮᱛ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱥᱟᱰᱮ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱛᱚᱨᱡᱚᱢᱟ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱪᱤᱛᱟᱹᱨ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱯᱷᱚᱨᱢᱟᱴ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱜᱮᱯ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱛᱷᱚᱠ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱥᱚᱢᱟᱱ ᱟᱹᱲᱟᱹ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱟᱹᱰᱤ ᱠᱷᱟᱴᱚ ᱚᱞ ᱥᱟᱦᱴᱟ]]\n" +
+    "[[Category:ᱢᱮᱱᱮᱛ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱥᱟᱰᱮ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱛᱚᱨᱡᱚᱢᱟ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱪᱤᱛᱟᱹᱨ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱯᱷᱚᱨᱢᱟᱴ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱜᱮᱯ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱛᱷᱚᱠ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱥᱚᱢᱟᱱ ᱟᱹᱲᱟᱹ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
     "[[Category:ᱩᱞᱴᱟᱹ ᱟᱹᱲᱟᱹ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱪᱚᱨᱚᱠ ᱥᱟᱦᱴᱟ🏆 ᱓]]\n" +
-    "[[Category:Wt/sat/SWT ᱛᱮ ᱥᱟᱦᱴᱟ ᱛᱮᱭᱟᱨ ᱦᱩᱭ ᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱥᱟᱱᱛᱟᱲᱤ ᱟᱹᱲᱟᱹ]]\n" +
+    "[[Category:ᱪᱚᱨᱚᱠ ᱥᱟᱦᱴᱟ🏆 ᱓]]\n" +
+    "[[Category:SWT ᱛᱮ ᱥᱟᱦᱴᱟ ᱛᱮᱭᱟᱨ ᱦᱩᱭ ᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱥᱟᱱᱛᱟᱲᱤ ᱟᱹᱲᱟᱹ]]\n" +
     category;
   document.getElementById("outputForm").value = outputValue;
 }
@@ -154,7 +151,7 @@ document.getElementById("resetButton").addEventListener("click", function () {
 // Redirect Url function
 function redirectToWebsite() {
   // Redirect Url
-  const baseUrl = "https://incubator.wikimedia.org/w/index.php?title=Wt/sat/";
+  const baseUrl = "https://sat.wiktionary.org/w/index.php?title=";
   const Sword = document.getElementById("Sword").value;
   const editUrl = "&action=edit";
   const redirectUrl = baseUrl + encodeURIComponent(Sword) + editUrl;

@@ -16,34 +16,49 @@ function writeCode() {
     assamese = document.getElementById("assamese").value,
     firstC = document.getElementById("firstC").value;
 
+  // New: Conditionally include audio section if Saudio is not blank
+  let audioSection = "";
+  if (Saudio.trim() !== "") {
+    audioSection = "[[File:" + Saudio + "]]\n";
+  }
+
+  // Adding here the helper function:
+  function bulletList(text) {
+    if (text.indexOf(",") !== -1) {
+      return text
+        .split(",")
+        .map((item) => "* " + item.trim())
+        .join("\n");
+    } else {
+      return "* " + text;
+    }
+  }
+
   // Output format
   const outputValue =
     "== ᱥᱟᱱᱛᱟᱲᱤ ==\n" +
     "=== ᱢᱮᱱᱮᱛ ===\n" +
-    Smeaning +
+    bulletList(Smeaning) +
     "\n" +
     "=== ᱥᱟᱰᱮ ===\n" +
-    "[[File:" +
-    Saudio +
-    "]]" +
-    "\n" +
-    "=== ᱩᱪᱨᱟᱹᱲ ===\n{{Wt/sat/ᱩᱪᱨᱟᱹᱲ|" +
+    audioSection +
+    "=== ᱩᱪᱨᱟᱹᱲ ===\n{{ᱩᱪᱨᱟᱹᱲ|" +
     proipa +
     "}}\n" +
-    "== English ==\n* " +
-    english +
+    "== English ==\n" +
+    bulletList(english) +
     "\n" +
-    "== ଓଡ଼ିଆ ==\n* " +
-    odia +
+    "== ଓଡ଼ିଆ ==\n" +
+    bulletList(odia) +
     "\n" +
-    "== हिंदी ==\n* " +
-    hindi +
+    "== हिंदी ==\n" +
+    bulletList(hindi) +
     "\n" +
-    "== বাংলা ==\n* " +
-    bangla +
+    "== বাংলা ==\n" +
+    bulletList(bangla) +
     "\n" +
-    "== অসমীয়া ==\n* " +
-    assamese +
+    "== অসমীয়া ==\n" +
+    bulletList(assamese) +
     "\n" +
     "== ᱥᱟᱹᱠᱷᱭᱟᱹᱛ ==\n" +
     "* Campbell, A.; Macphail, R.M. (1984). Campbell's English-Santali Dictionary. Eastern Books. ISBN 978-0-8364-1137-9.\n" +
@@ -56,24 +71,23 @@ function writeCode() {
     "* पसाद, स्वर्णलता (1988). संताली हिन्दी सब्दकोष [Santali Hindi Dictionary]. बिहार जन जातीय कल्याण शोध संस्थान रांची. \n" +
     "* पसाद, स्वर्णलता (1988). हिन्दी संताली सब्दकोष [Hindi Santali Dictionary]. बिहार जन जातीय कल्याण शोध संस्थान रांची. \n" +
     "=== ᱵᱟᱹᱲᱛᱤ ᱡᱚᱱᱚᱲ ===\n" +
-    "{{Wt/sat/ᱣᱤᱠᱤᱯᱤᱰᱤᱭᱟ}}\n" +
-    "[[Category:Wt/sat/" +
+    "{{ᱣᱤᱠᱤᱯᱤᱰᱤᱭᱟ}}\n" +
+    "[[Category:" +
     firstC +
     "]]\n" +
-    "[[Category:Wt/sat]]\n" +
-    "[[Category:Wt/sat/ᱟᱹᱰᱤ ᱠᱷᱟᱴᱚ ᱚᱞ ᱥᱟᱦᱴᱟ]]\n" +
-    "[[Category:Wt/sat/ᱢᱮᱱᱮᱛ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱥᱟᱰᱮ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱛᱚᱨᱡᱚᱢᱟ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱪᱤᱛᱟᱹᱨ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱯᱷᱚᱨᱢᱟᱴ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱜᱮᱯ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱛᱷᱚᱠ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱥᱚᱢᱟᱱ ᱟᱹᱲᱟᱹ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱟᱹᱰᱤ ᱠᱷᱟᱴᱚ ᱚᱞ ᱥᱟᱦᱴᱟ]]\n" +
+    "[[Category:ᱢᱮᱱᱮᱛ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱥᱟᱰᱮ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱛᱚᱨᱡᱚᱢᱟ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱪᱤᱛᱟᱹᱨ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱯᱷᱚᱨᱢᱟᱴ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱜᱮᱯ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱛᱷᱚᱠ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱥᱚᱢᱟᱱ ᱟᱹᱲᱟᱹ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
     "[[Category:ᱩᱞᱴᱟᱹ ᱟᱹᱲᱟᱹ ᱵᱟᱝ ᱥᱟᱹᱛ ᱟᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱪᱚᱨᱚᱠ ᱥᱟᱦᱴᱟ🏆 ᱓]]\n" +
-    "[[Category:Wt/sat/SWT ᱛᱮ ᱥᱟᱦᱴᱟ ᱛᱮᱭᱟᱨ ᱦᱩᱭ ᱠᱟᱱᱟ]]\n" +
-    "[[Category:Wt/sat/ᱥᱟᱱᱛᱟᱲᱤ ᱟᱹᱲᱟᱹ]]\n";
+    "[[Category:ᱪᱚᱨᱚᱠ ᱥᱟᱦᱴᱟ🏆 ᱓]]\n" +
+    "[[Category:SWT ᱛᱮ ᱥᱟᱦᱴᱟ ᱛᱮᱭᱟᱨ ᱦᱩᱭ ᱠᱟᱱᱟ]]\n" +
+    "[[Category:ᱥᱟᱱᱛᱟᱲᱤ ᱟᱹᱲᱟᱹ]]\n";
   document.getElementById("outputForm").value = outputValue;
 }
 
@@ -121,7 +135,7 @@ document.getElementById("resetButton").addEventListener("click", function () {
 // Redirect Url function
 function redirectToWebsite() {
   // Redirect Url
-  const baseUrl = "https://incubator.wikimedia.org/w/index.php?title=Wt/sat/";
+  const baseUrl = "https://sat.wiktionary.org/w/index.php?title=";
   const Sword = document.getElementById("Sword").value;
   const editUrl = "&action=edit";
   const redirectUrl = baseUrl + encodeURIComponent(Sword) + editUrl;

@@ -22,8 +22,9 @@
         <span class="site-name">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ</span>
         <nav>
             <ul class="desktop-menu">
-                <li><a href="/wt">ᱚᱲᱟᱜ</a></li>
-                <li><a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a></li>
+              <li><a href="/">ᱚᱲᱟᱜ</a></li>
+              <li><a href="/wt/">ᱣᱤᱠᱤᱲᱟᱹᱢᱩᱨᱟᱹᱭ ᱚᱲᱟᱜ</a></li>
+              <li><a href="/about/">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a></li>
                 <li class="dropdown">
                     <a href="#tools">ᱥᱟᱯᱟᱵ ᱠᱚ</a>
                     <ul class="dropdown-menu">
@@ -45,8 +46,9 @@
 <div id="mobile-menu" class="mobile-menu">
   <button id="close-menu" class="close-button">X</button>
   <!-- Add your menu items here -->
-  <a href="/wt">ᱚᱲᱟᱜ</a>
-  <a href="/wt/README.md">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a>
+  <a href="/">ᱚᱲᱟᱜ</a>
+  <a href="/wt/">ᱣᱤᱠᱤᱲᱟᱹᱢᱩᱨᱟᱹᱭ ᱚᱲᱟᱜ</a>
+  <a href="/about/">ᱟᱞᱮ ᱵᱟᱵᱚᱛ</a>
   <div class="dropdown">
     <a href="#tools" class="dropdown-toggle" onclick="toggleDropdown(event)">ᱥᱟᱯᱟᱵ ᱠᱚ <span class="drop-u"><img width="20" height="20" src="https://img.icons8.com/ios/1600/FFFFFF/circled-chevron-down.png" alt="circled-chevron-down"/></span> </a>
     <ul class="dropdown-content">
@@ -68,56 +70,56 @@
   <form name="sources" id="form">
     <!-- Word -->
     <div class="form-control">
-      <label for="Sword" id="label-name">Word (mandatory, e.g., ᱥᱟᱱᱛᱟᱲᱤ)</label>
-      <input type="text" id="Sword" placeholder="Enter a Word" oninput="updateFirstCharacter();" required />
+      <label for="Sword" id="label-name">Word (mandatory)</label>
+      <input type="text" id="Sword" placeholder="ᱡᱚᱡᱚ ᱫᱟᱨᱮ" oninput="updateFirstCharacter();" required />
     </div>
 
     <!-- Meaning -->
     <div class="form-control">
-      <label for="Smeaning" id="label-name">Meaning (mandatory)</label>
-      <input type="text" id="Smeaning" placeholder="Enter a Meaning" required />
+      <label for="Smeaning" id="label-name">Meaning (mandatory)  | Use COMMA for multiple entries.</label>
+      <input type="text" id="Smeaning" placeholder="ᱡᱚᱢ ᱜᱟᱱᱚᱜ ᱡᱚ ᱫᱟᱨᱮ ᱠᱟᱱᱟ ᱡᱟᱦᱟᱸ ᱫᱚ ᱥᱤᱧᱚᱛ, ᱯᱟᱠᱤᱥᱛᱟᱱ ᱟᱨ ᱠᱨᱟᱱᱛᱤᱭᱚ ᱫᱷᱟᱯ ᱨᱮᱭᱟᱜ ᱫᱤᱥᱚᱱ ᱠᱚᱨᱮ ᱧᱟᱢᱚᱜ ᱫᱟᱨᱮ ᱠᱟᱱᱟ ᱾" required />
     </div>
 
     <!-- Audio -->
     <div class="form-control">
-      <label for="Saudio" id="label-name">Audio link (optional) e.g., ᱝ - Santali script.ogg</label>
-      <input type="text" id="Saudio" placeholder="Audio link" />
+      <label for="Saudio" id="label-name">Audio filename (optional)</label>
+      <input type="text" id="Saudio" placeholder="ᱡᱚᱡᱚ ᱫᱟᱨᱮ - Santali.ogg" />
     </div>
 
     <!-- IPA Pronunciation -->
     <div class="form-control">
       <label for="proipa" id="label-name">IPA Pronunciation (optional)</label>
-      <input type="text" id="proipa" placeholder="IPA Pronunciation" />
+      <input type="text" id="proipa" placeholder="d͡ʒɔd͡ʒɔ dare" />
     </div>
 
     <!-- English -->
     <div class="form-control">
-      <label for="english" id="label-name">English (Optional) - add commas to add multiple words</label>
-      <input type="text" id="english" placeholder="English Word" required />
+      <label for="english" id="label-name">English (Optional) | Use COMMA for multiple entries.</label>
+      <input type="text" id="english" placeholder="Tamarind tree" required />
     </div>
 
     <!-- Odia -->
     <div class="form-control">
-      <label for="odia" id="label-name">Odia Word (optional)</label>
-      <input type="text" id="odia" placeholder="Odia Word" required />
+      <label for="odia" id="label-name">Odia (optional) | Use COMMA for multiple entries.</label>
+      <input type="text" id="odia" placeholder="ତେନ୍ତୁଳି ଗଛ" required />
     </div>
 
     <!-- Hindi -->
     <div class="form-control">
-      <label for="hindi" id="label-name">Hindi Word (optional)</label>
-      <input type="text" id="hindi" placeholder="Hindi Word" />
+      <label for="hindi" id="label-name">Hindi (optional) | Use COMMA for multiple entries.</label>
+      <input type="text" id="hindi" placeholder="इमली का पेड़" />
     </div>
 
     <!-- Bangla -->
     <div class="form-control">
-      <label for="bangla" id="label-name">Bangla Word (optional)</label>
-      <input type="text" id="bangla" placeholder="Bangla Word" />
+      <label for="bangla" id="label-name">Bangla (optional) | Use COMMA for multiple entries.</label>
+      <input type="text" id="bangla" placeholder="তেঁতুল গাছ" />
     </div>
 
     <!-- Assamese -->
     <div class="form-control">
-      <label for="assamese" id="label-name">Assamese Word (optional)</label>
-      <input type="text" id="assamese" placeholder="Assamese Word" />
+      <label for="assamese" id="label-name">Assamese (optional) | Use COMMA for multiple entries.</label>
+      <input type="text" id="assamese" placeholder="টেঙা গছ" />
     </div>
 
     <!-- First Character (Auto-populated) -->
@@ -141,7 +143,7 @@
 
     <!-- Output -->
     <div class="form-control">
-      <label for="comment">Your Text</label>
+      <label for="comment">ᱟᱢᱟᱜ ᱚᱱᱚᱞ ᱚᱨᱡᱚ</label>
       <textarea name="comment" id="outputForm" placeholder="Press Generate Button"></textarea>
     </div>
   </form>

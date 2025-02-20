@@ -3,9 +3,7 @@ function basicSearch() {
   const searchInput = document.forms.basicForm.searchterms.value.trim();
   if (searchInput) {
     window.open(
-      `https://incubator.wikimedia.org/wiki/Wt/sat/${encodeURIComponent(
-        searchInput
-      )}`,
+      `https://sat.wiktionary.org/wiki/${encodeURIComponent(searchInput)}`,
       "_blank"
     );
   } else {
