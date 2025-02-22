@@ -68,22 +68,11 @@
 
   <main>
   <form name="sources" id="form">
+    <h2 class="form-title">ᱣᱤᱠᱤ ᱟᱹᱲᱟᱹ ᱢᱩᱨᱟᱹᱭ ᱪᱷᱟᱸᱪ</h2>
     <!-- Word -->
     <div class="form-control">
       <label for="Sword" id="label-name">Word (mandatory)</label>
       <input type="text" id="Sword" placeholder="ᱡᱚᱡᱚ ᱫᱟᱨᱮ" oninput="updateFirstCharacter();" required />
-    </div>
-
-    <!-- Meaning -->
-    <div class="form-control">
-      <label for="Smeaning" id="label-name">Meaning (mandatory)  | Use COMMA for multiple entries.</label>
-      <input type="text" id="Smeaning" placeholder="ᱡᱚᱢ ᱜᱟᱱᱚᱜ ᱡᱚ ᱫᱟᱨᱮ ᱠᱟᱱᱟ ᱡᱟᱦᱟᱸ ᱫᱚ ᱥᱤᱧᱚᱛ, ᱯᱟᱠᱤᱥᱛᱟᱱ ᱟᱨ ᱠᱨᱟᱱᱛᱤᱭᱚ ᱫᱷᱟᱯ ᱨᱮᱭᱟᱜ ᱫᱤᱥᱚᱱ ᱠᱚᱨᱮ ᱧᱟᱢᱚᱜ ᱫᱟᱨᱮ ᱠᱟᱱᱟ ᱾" required />
-    </div>
-
-    <!-- Audio -->
-    <div class="form-control">
-      <label for="Saudio" id="label-name">Audio filename (optional)</label>
-      <input type="text" id="Saudio" placeholder="ᱡᱚᱡᱚ ᱫᱟᱨᱮ - Santali.ogg" />
     </div>
 
     <!-- IPA Pronunciation -->
@@ -92,6 +81,33 @@
       <input type="text" id="proipa" placeholder="d͡ʒɔd͡ʒɔ dare" />
     </div>
 
+    <!-- Audio -->
+    <div class="form-control">
+      <label for="Saudio" id="label-name">Audio filename (optional)</label>
+      <input type="text" id="Saudio" placeholder="ᱡᱚᱡᱚ ᱫᱟᱨᱮ - Santali.ogg" />
+    </div>
+
+    <hr /> <!-- Context meaning -->
+
+    <!-- Part of the speech -->
+    <div class="form-control">
+      <label for="pots" id="label-name">Part of the speech (optional)</label>
+      <input type="text" id="pots" placeholder="ᱧᱩᱱᱩᱢ" />
+    </div>
+
+    <!-- Meaning -->
+    <div class="form-control">
+      <label for="Smeaning" id="label-name">Meaning (mandatory)  | Use COMMA for multiple entries.</label>
+      <input type="text" id="Smeaning" placeholder="ᱡᱚᱢ ᱜᱟᱱᱚᱜ ᱡᱚ ᱫᱟᱨᱮ ᱠᱟᱱᱟ ᱡᱟᱦᱟᱸ ᱫᱚ ᱥᱤᱧᱚᱛ, ᱯᱟᱠᱤᱥᱛᱟᱱ ᱟᱨ ᱠᱨᱟᱱᱛᱤᱭᱚ ᱫᱷᱟᱯ ᱨᱮᱭᱟᱜ ᱫᱤᱥᱚᱱ ᱠᱚᱨᱮ ᱧᱟᱢᱚᱜ ᱫᱟᱨᱮ ᱠᱟᱱᱟ ᱾" required />
+    </div>
+
+    <!-- Examples -->
+      <div class="form-control">
+        <label for="examples" id="label-name">Examples (optional) | Use ᱢᱩᱪᱟᱹᱫ ᱪᱤᱱᱦᱟᱹ for multiple entries.</label>
+        <input type="text" id="examples" placeholder="ᱡᱚᱡᱚ ᱫᱟᱨᱮ ᱩᱢᱩᱞ ᱟᱹᱰᱤ ᱜᱚᱢᱦᱮᱬᱟ ᱾" />
+      </div>
+
+      <hr /> <!-- Translations section -->
     <!-- English -->
     <div class="form-control">
       <label for="english" id="label-name">English (Optional) | Use COMMA for multiple entries.</label>
@@ -120,6 +136,12 @@
     <div class="form-control">
       <label for="assamese" id="label-name">Assamese (optional) | Use COMMA for multiple entries.</label>
       <input type="text" id="assamese" placeholder="টেঙা গছ" />
+    </div>
+
+    <!-- Nepali -->
+    <div class="form-control">
+      <label for="nepali" id="label-name">Nepali (optional) | Use COMMA for multiple entries.</label>
+      <input type="text" id="nepali" placeholder="इमली रुख, तित्री रुख, तेतोर रुख" />
     </div>
 
     <!-- First Character (Auto-populated) -->

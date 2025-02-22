@@ -6,14 +6,17 @@ function updateFirstCharacter() {
 
 function writeCode() {
   const Sword = document.getElementById("Sword").value,
-    Smeaning = document.getElementById("Smeaning").value,
-    Saudio = document.getElementById("Saudio").value,
     proipa = document.getElementById("proipa").value,
+    Saudio = document.getElementById("Saudio").value,
+    pots = document.getElementById("pots").value,
+    Smeaning = document.getElementById("Smeaning").value,
+    examples = document.getElementById("examples").value,
     english = document.getElementById("english").value,
     odia = document.getElementById("odia").value,
     hindi = document.getElementById("hindi").value,
     bangla = document.getElementById("bangla").value,
     assamese = document.getElementById("assamese").value,
+    nepali = document.getElementById("nepali").value,
     firstC = document.getElementById("firstC").value;
 
   // New: Conditionally include audio section if Saudio is not blank
@@ -34,32 +37,106 @@ function writeCode() {
     }
   }
 
+  // Bullet Examples function:
+  function bulletx(text) {
+    if (text.indexOf(",") !== -1) {
+      return text
+        .split("᱾")
+        .map((item) => "* " + item.trim() + " ᱾")
+        .join("\n");
+    } else {
+      return "* " + text;
+    }
+  }
+
+  // language helper function that accepts a dynamic language code:
+  function bulleten(text, langCode) {
+    if (text.indexOf(",") !== -1) {
+      return text
+        .split(",")
+        .map(
+          (item) =>
+            "# [[:" + langCode + ":" + item.trim() + "|" + item.trim() + "]]"
+        )
+        .join("\n");
+    } else {
+      return "# [[:" + langCode + ":" + text + "|" + text + "]]";
+    }
+  }
+
+  // Mapping of language fields to language codes
+  const langMapping = {
+    english: "en",
+    odia: "or",
+    hindi: "hi",
+    bangla: "bn",
+    assamese: "as",
+    nepali: "ne",
+  };
+
+  // Mapping of language fields to their header text
+  const langHeaders = {
+    english: "ᱤᱝᱞᱤᱥ",
+    odia: "ᱳᱰᱤᱭᱟ",
+    hindi: "ᱦᱤᱱᱫᱤ",
+    bangla: "ᱵᱟᱝᱞᱟ",
+    assamese: "ᱚᱥᱚᱢᱤᱭᱟ",
+    nepali: "ᱱᱮᱯᱟᱞᱤ",
+  };
+
+  // Helper function to build each language bullet line.
+  // If the language input is blank, it returns a default bullet line using the dynamic header variable.
+  function buildLanguageLine(value, fieldName) {
+    const header = langHeaders[fieldName] || "";
+    if (value.trim() === "") {
+      return "* [[" + header + "]]:\n# \n";
+    } else {
+      return (
+        "* [[" +
+        header +
+        "]]: \n" +
+        bulleten(value, langMapping[fieldName]) +
+        "\n"
+      );
+    }
+  }
+
+  // Build language sections conditionally.
+  // First group (before trans-mid)
+  let languageOutput =
+    "{{trans-top|<center><b>ᱮᱴᱟᱜ ᱯᱟᱹᱨᱥᱤ ᱨᱮᱭᱟᱜ ᱟᱹᱲᱟᱹᱠᱚ</b></center>}}\n";
+  languageOutput += buildLanguageLine(english, "english");
+  languageOutput += buildLanguageLine(odia, "odia");
+  languageOutput += buildLanguageLine(hindi, "hindi");
+
+  languageOutput += "{{trans-mid}}\n";
+  // Second group (after trans-mid)
+  languageOutput += buildLanguageLine(bangla, "bangla");
+  languageOutput += buildLanguageLine(assamese, "assamese");
+  languageOutput += buildLanguageLine(nepali, "nepali");
+  languageOutput += "{{trans-bottom}}\n";
+
   // Output format
   const outputValue =
+    "{{SUBPAGENAME}}<br>" +
+    "<b> ᱩᱪᱨᱟᱹᱲ </b>\n{{ᱩᱪᱨᱟᱹᱲ|" +
+    proipa +
+    "}}\n" +
+    "<b> ᱥᱟᱰᱮ </b>\n" +
+    audioSection +
+    "\n" +
     "== ᱥᱟᱱᱛᱟᱲᱤ ==\n" +
+    "<big>" +
+    pots +
+    " ᱯᱟᱹᱨᱤᱥ</big>\n" +
     "=== ᱢᱮᱱᱮᱛ ===\n" +
     bulletList(Smeaning) +
     "\n" +
-    "=== ᱥᱟᱰᱮ ===\n" +
-    audioSection +
-    "=== ᱩᱪᱨᱟᱹᱲ ===\n{{ᱩᱪᱨᱟᱹᱲ|" +
-    proipa +
-    "}}\n" +
-    "== English ==\n" +
-    bulletList(english) +
+    "=== ᱫᱟᱹᱭᱠᱟᱹ ===\n" +
+    bulletx(examples) +
     "\n" +
-    "== ଓଡ଼ିଆ ==\n" +
-    bulletList(odia) +
-    "\n" +
-    "== हिंदी ==\n" +
-    bulletList(hindi) +
-    "\n" +
-    "== বাংলা ==\n" +
-    bulletList(bangla) +
-    "\n" +
-    "== অসমীয়া ==\n" +
-    bulletList(assamese) +
-    "\n" +
+    "== ᱛᱚᱨᱚᱡᱚᱢᱟ ==\n" +
+    languageOutput +
     "== ᱥᱟᱹᱠᱷᱭᱟᱹᱛ ==\n" +
     "* Campbell, A.; Macphail, R.M. (1984). Campbell's English-Santali Dictionary. Eastern Books. ISBN 978-0-8364-1137-9.\n" +
     "* Campbell, A. (1899). A Santali-English dictionary. Santal Mission Press.\n" +

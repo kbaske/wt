@@ -33,7 +33,7 @@ const nextPrompt = () => {
 
 const showFinal = () => {
   const resultHTML = `
-    == ᱥᱟᱱᱛᱟᱲᱤ ==<br>=== ᱢᱮᱱᱮᱛ ===<br>${answers[1]}<br>=== ᱥᱟᱰᱮ ===<br>[[File:${answers[2]}]]<br>== English ==<br>* ${answers[3]}<br>== ଓଡ଼ିଆ ==<br>* ${answers[4]}<br>== हिंदी ==<br>* ${answers[5]}<br>== বাংলা ==<br>* ${answers[6]}<br>== অসমীয়া ==<br>* ${answers[7]}<br>== ᱥᱟᱹᱠᱷᱭᱟᱹᱛ ==<br>* Campbell, A.; Macphail, R.M. (1984). Campbell's English-Santali Dictionary. Eastern Books. ISBN 978-0-8364-1137-9.<br>
+    {{SUBPAGENAME}}<br>== ᱥᱟᱱᱛᱟᱲᱤ ==<br>=== ᱢᱮᱱᱮᱛ ===<br>${answers[1]}<br>=== ᱥᱟᱰᱮ ===<br>[[File:${answers[2]}]]<br>== English ==<br>* ${answers[3]}<br>== ଓଡ଼ିଆ ==<br>* ${answers[4]}<br>== हिंदी ==<br>* ${answers[5]}<br>== বাংলা ==<br>* ${answers[6]}<br>== অসমীয়া ==<br>* ${answers[7]}<br>== ᱥᱟᱹᱠᱷᱭᱟᱹᱛ ==<br>* Campbell, A.; Macphail, R.M. (1984). Campbell's English-Santali Dictionary. Eastern Books. ISBN 978-0-8364-1137-9.<br>
     * Campbell, A. (1899). A Santali-English dictionary. Santal Mission Press.<br>
     * Mrs. Maina Tudu (Hansdah). (2016) SANTALI DICTIONARY, Olchiki-Olchiki-English script. ISBN 978-93-5267-534-0 <br>
     * P.O. BODDING. SANTALI DICTIONARY (1929)<br> 

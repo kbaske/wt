@@ -42,6 +42,7 @@ function writeCode() {
 
   // Output format
   const outputValue =
+    "{{SUBPAGENAME}}\n" +
     "== ᱥᱟᱱᱛᱟᱲᱤ ==\n" +
     "=== ᱢᱮᱱᱮᱛ ===\n" +
     bulletList(Smeaning) +
