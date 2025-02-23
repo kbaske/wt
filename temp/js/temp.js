@@ -42,8 +42,8 @@ function writeCode() {
     if (text.indexOf("᱾") !== -1) {
       return text
         .split("᱾")
-        .map((item) => "* " + item.trim())
-        .join(" ᱾\n");
+        .map((item) => "* " + item.trim() + " ᱾")
+        .join("\n");
     } else {
       return "* " + text;
     }
