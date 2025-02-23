@@ -39,7 +39,7 @@ function writeCode() {
 
   // Bullet Examples function:
   function bulletx(text) {
-    if (text.indexOf(",") !== -1) {
+    if (text.indexOf("᱾") !== -1) {
       return text
         .split("᱾")
         .map((item) => "* " + item.trim() + " ᱾")
