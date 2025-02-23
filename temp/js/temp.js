@@ -39,11 +39,11 @@ function writeCode() {
 
   // Bullet Examples function:
   function bulletx(text) {
-    if (text.indexOf(",") !== -1) {
+    if (text.indexOf("᱾") !== -1) {
       return text
         .split("᱾")
-        .map((item) => "* " + item.trim() + " ᱾")
-        .join("\n");
+        .map((item) => "* " + item.trim())
+        .join(" ᱾\n");
     } else {
       return "* " + text;
     }
@@ -126,16 +126,16 @@ function writeCode() {
     audioSection +
     "\n" +
     "== ᱥᱟᱱᱛᱟᱲᱤ ==\n" +
-    "<big>" +
+    "<big><b>" +
     pots +
-    " ᱯᱟᱹᱨᱤᱥ</big>\n" +
+    " ᱯᱟᱹᱨᱤᱥ</b></big>\n" +
     "=== ᱢᱮᱱᱮᱛ ===\n" +
     bulletList(Smeaning) +
     "\n" +
     "=== ᱫᱟᱹᱭᱠᱟᱹ ===\n" +
     bulletx(examples) +
     "\n" +
-    "== ᱛᱚᱨᱚᱡᱚᱢᱟ ==\n" +
+    "== ᱛᱚᱨᱡᱚᱢᱟ ==\n" +
     languageOutput +
     "== ᱥᱟᱹᱠᱷᱭᱟᱹᱛ ==\n" +
     "* Campbell, A.; Macphail, R.M. (1984). Campbell's English-Santali Dictionary. Eastern Books. ISBN 978-0-8364-1137-9.\n" +
