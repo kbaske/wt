@@ -10,6 +10,9 @@ function writeCode() {
     Saudio = document.getElementById("Saudio").value,
     pots = document.getElementById("pots").value,
     Smeaning = document.getElementById("Smeaning").value,
+    images = document.getElementById("images").value,
+    synonyms = document.getElementById("synonyms").value,
+    antonyms = document.getElementById("antonyms").value,
     examples = document.getElementById("examples").value,
     english = document.getElementById("english").value,
     odia = document.getElementById("odia").value,
@@ -47,6 +50,22 @@ function writeCode() {
     } else {
       return "* " + text;
     }
+  }
+
+  // Updated Image Helper Function: Converts valid entries to a gallery view.
+  // If no valid image is provided or if any comma-separated value is blank, that entry is skipped.
+  function imageList(text) {
+    if (!text.trim()) return "";
+    const imagesArr = text
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+    if (imagesArr.length === 0) return "";
+    return (
+      "<gallery>\n" +
+      imagesArr.map((item) => "File:" + item + "|frameless").join("\n") +
+      "\n</gallery>"
+    );
   }
 
   // language helper function that accepts a dynamic language code:
@@ -135,6 +154,19 @@ function writeCode() {
     "=== ᱫᱟᱹᱭᱠᱟᱹ ===\n" +
     bulletx(examples) +
     "\n" +
+    "=== ᱪᱤᱛᱟᱹᱨ ===\n" +
+    imageList(images) +
+    "\n" +
+    "=== ᱥᱚᱢᱟᱱ ᱟᱨ ᱩᱞᱴᱟᱹ ᱟᱹᱲᱟᱹ ===\n" +
+    "{{trans-top|<center>ᱥᱚᱢᱟᱱ ᱟᱨ ᱩᱞᱴᱟᱹ ᱟᱹᱲᱟᱹᱠᱚ</center>}}\n" +
+    "<b>ᱥᱚᱢᱟᱱ ᱟᱹᱲᱟᱹ</b>\n" +
+    bulletList(synonyms) +
+    "\n" +
+    "{{trans-mid}}\n" +
+    "<b>ᱩᱞᱴᱟᱹ ᱟᱹᱲᱟᱹ</b>\n" +
+    bulletList(antonyms) +
+    "\n" +
+    "{{trans-bottom}}\n" +
     "== ᱛᱚᱨᱡᱚᱢᱟ ==\n" +
     languageOutput +
     "== ᱥᱟᱹᱠᱷᱭᱟᱹᱛ ==\n" +
