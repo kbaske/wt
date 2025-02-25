@@ -173,7 +173,7 @@ function writeCode() {
     "* Campbell, A.; Macphail, R.M. (1984). Campbell's English-Santali Dictionary. Eastern Books. ISBN 978-0-8364-1137-9.\n" +
     "* Campbell, A. (1899). A Santali-English dictionary. Santal Mission Press.\n" +
     "* Tudu (Hansdah), Maina (2016), SANTALI DICTIONARY, Olchiki-Olchiki-English script. ISBN 978-93-5267-534-0 \n" +
-    "* Bodding, P.O. (1929-36), A SANTAL DICTIONARY, Vol. I-V  \n" +
+    "* Bodding, P.O. (1929-36), A SANTAL DICTIONARY, Vol. I-V, I kommisjon hos Jacob Dybwad, Oslo \n" +
     "* Skrefsrud, Lars Olsen (1873) [https://archive.org/details/aau0434.0001.001.umich.edu A Grammar of the Santhal Language], Calcutta, West Bengal: Medical Hall Press \n" +
     "* Majhi, Lasa (1995). Majhi, Chaitanya Prasad (ed.). Santali Odia Abhidhan [Santali Odia Dictionary] (2nd ed.). Odisha: Special Development Council, Mayurbhanj, Planning & Convergence Department, Govt. of Odisha (published November, 2018). \n" +
     "* Majhi, K; Tudu, Krushna Chandra; Hembram, Birbal (2015). Verma, Keshari Lal (ed.). Fundamental Administrative Terminology. (Series under Administrative Terminology in Indian Languages) (1st ed.). India: Commission for Scientific and Technical Terminology, Ministry of Human Resource Development, (Department of Higher Education). \n" +
