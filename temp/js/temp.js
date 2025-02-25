@@ -108,12 +108,12 @@ function writeCode() {
   function buildLanguageLine(value, fieldName) {
     const header = langHeaders[fieldName] || "";
     if (value.trim() === "") {
-      return "* [[" + header + "]]:\n# \n";
+      return "* <b>[[" + header + "]]:</b>\n# \n";
     } else {
       return (
-        "* [[" +
+        "* <b>[[" +
         header +
-        "]]: \n" +
+        "]]:</b> \n" +
         bulleten(value, langMapping[fieldName]) +
         "\n"
       );
@@ -123,7 +123,7 @@ function writeCode() {
   // Build language sections conditionally.
   // First group (before trans-mid)
   let languageOutput =
-    "{{trans-top|<center><b>ᱮᱴᱟᱜ ᱯᱟᱹᱨᱥᱤ ᱨᱮᱭᱟᱜ ᱟᱹᱲᱟᱹᱠᱚ</b></center>}}\n";
+    "{{trans-top|<center><i><b>{{SUBPAGENAME}}</b> ᱟᱹᱲᱟᱹ ᱨᱮᱭᱟᱜ ᱮᱴᱟᱜ ᱯᱟᱹᱨᱥᱤ ᱨᱮᱱ ᱟᱹᱲᱟᱹᱠᱚ</i></center>}}\n";
   languageOutput += buildLanguageLine(english, "english");
   languageOutput += buildLanguageLine(odia, "odia");
   languageOutput += buildLanguageLine(hindi, "hindi");
@@ -137,7 +137,7 @@ function writeCode() {
 
   // Output format
   const outputValue =
-    "{{SUBPAGENAME}}<br>" +
+    "<b>{{SUBPAGENAME}}</b><br>\n" +
     "<b> ᱩᱪᱨᱟᱹᱲ </b>\n{{ᱩᱪᱨᱟᱹᱲ|" +
     proipa +
     "}}\n" +
@@ -158,7 +158,7 @@ function writeCode() {
     imageList(images) +
     "\n" +
     "=== ᱥᱚᱢᱟᱱ ᱟᱨ ᱩᱞᱴᱟᱹ ᱟᱹᱲᱟᱹ ===\n" +
-    "{{trans-top|<center>ᱥᱚᱢᱟᱱ ᱟᱨ ᱩᱞᱴᱟᱹ ᱟᱹᱲᱟᱹᱠᱚ</center>}}\n" +
+    "{{trans-top|<center><i><b>{{SUBPAGENAME}}</b> ᱟᱹᱲᱟᱹ ᱨᱮᱭᱟᱜ ᱥᱚᱢᱟᱱ ᱟᱨ ᱩᱞᱴᱟᱹ ᱟᱹᱲᱟᱹᱠᱚ</i></center>}}\n" +
     "<b>ᱥᱚᱢᱟᱱ ᱟᱹᱲᱟᱹ</b>\n" +
     bulletList(synonyms) +
     "\n" +
