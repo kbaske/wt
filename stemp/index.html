@@ -68,6 +68,7 @@
 
   <main>
   <form name="sources" id="form">
+    <h2 class="form-title">ᱥᱟᱬᱮᱥᱤᱭᱟᱹ ᱧᱩᱛᱩᱢ ᱪᱷᱟᱸᱪ</h2>
     <!-- Toggle Switch -->
     <div class="switch-control">
       <label for="categorySwitch" id="switch-label-name">Kingdom : 
@@ -85,22 +86,28 @@
       <input type="text" id="Sword" placeholder="ᱦᱚᱲ" oninput="updateFirstCharacter();" required />
     </div>
 
-    <!-- Meaning -->
-    <div class="form-control">
-      <label for="Smeaning" id="label-name">Meaning (mandatory) | Use COMMA for multiple entries.</label>
-      <input type="text" id="Smeaning" placeholder="ᱡᱤᱣᱤᱭᱟᱱ ᱡᱤᱭᱟᱹᱞᱤᱠᱚ ᱢᱩᱫᱽᱨᱮ ᱡᱚᱛᱚᱠᱷᱚᱱ ᱵᱟᱹᱲᱛᱤ ᱩᱛᱷᱱᱟᱹᱣᱟᱠᱟᱱ ᱡᱤᱭᱟᱹᱞᱤ" required />
-    </div>
-
-    <!-- Audio -->
-    <div class="form-control">
-      <label for="Saudio" id="label-name">Audio filename (optional)</label>
-      <input type="text" id="Saudio" placeholder="ᱦᱚᱲ - Santali.ogg" />
-    </div>
-
     <!-- IPA Pronunciation -->
     <div class="form-control">
       <label for="proipa" id="label-name">IPA Pronunciation (optional)</label>
       <input type="text" id="proipa" placeholder="hɔɽ" />
+    </div>
+
+        <!-- Audio -->
+        <div class="form-control">
+          <label for="Saudio" id="label-name">Pronunciation filename (optional)</label>
+          <input type="text" id="Saudio" placeholder="ᱦᱚᱲ - Santali.ogg" />
+        </div>
+
+    <!-- Images -->
+    <div class="form-control">
+      <label for="images" id="label-name">Images (optional) | Use COMMA for multiple entries.</label>
+      <input type="text" id="images" placeholder="ᱡᱚᱡᱚ ᱫᱟᱨᱮ.jpg, ᱡᱚᱡᱚ ᱡᱚ.png, Tamarind green fruit.jpg" />
+    </div>
+
+    <!-- Meaning -->
+    <div class="form-control">
+      <label for="Smeaning" id="label-name">Meaning (mandatory) | Use COMMA for multiple entries.</label>
+      <input type="text" id="Smeaning" placeholder="ᱡᱤᱣᱤᱭᱟᱱ ᱡᱤᱭᱟᱹᱞᱤᱠᱚ ᱢᱩᱫᱽᱨᱮ ᱡᱚᱛᱚᱠᱷᱚᱱ ᱵᱟᱹᱲᱛᱤ ᱩᱛᱷᱱᱟᱹᱣᱟᱠᱟᱱ ᱡᱤᱭᱟᱹᱞᱤ" required />
     </div>
 
     <!-- Scientific Name -->

@@ -8,6 +8,7 @@ function writeCode() {
   const Sword = document.getElementById("Sword").value,
     Smeaning = document.getElementById("Smeaning").value,
     Saudio = document.getElementById("Saudio").value,
+    images = document.getElementById("images").value,
     proipa = document.getElementById("proipa").value,
     sn = document.getElementById("sn").value,
     cn = document.getElementById("cn").value,
@@ -40,18 +41,37 @@ function writeCode() {
     }
   }
 
+  // Updated Image Helper Function: Converts valid entries to a gallery view.
+  // If no valid image is provided or if any comma-separated value is blank, that entry is skipped.
+  function imageList(text) {
+    if (!text.trim()) return "";
+    const imagesArr = text
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+    if (imagesArr.length === 0) return "";
+    return (
+      "<gallery>\n" +
+      imagesArr.map((item) => "File:" + item + "|frameless").join("\n") +
+      "\n</gallery>"
+    );
+  }
+
   // Output format
   const outputValue =
     "{{SUBPAGENAME}}\n" +
     "== ᱥᱟᱱᱛᱟᱲᱤ ==\n" +
-    "=== ᱢᱮᱱᱮᱛ ===\n" +
-    bulletList(Smeaning) +
-    "\n" +
-    "=== ᱥᱟᱰᱮ ===\n" +
-    audioSection +
     "=== ᱩᱪᱨᱟᱹᱲ ===\n{{ᱩᱪᱨᱟᱹᱲ|" +
     proipa +
     "}}\n" +
+    "=== ᱥᱟᱰᱮ ===\n" +
+    audioSection +
+    "\n" +
+    bulletList(images) +
+    "\n" +
+    "=== ᱢᱮᱱᱮᱛ ===\n" +
+    bulletList(Smeaning) +
+    "\n" +
     "== ᱥᱟᱮᱬᱥᱤᱭᱟᱹ ᱧᱩᱛᱩᱢ ==\n* " +
     "[[species:" +
     sn +
@@ -61,6 +81,7 @@ function writeCode() {
     "== ᱫᱤᱥᱣᱟᱹ ᱧᱩᱛᱩᱢ ==\n" +
     bulletList(cn) +
     "\n" +
+    "<big><b>ᱧᱩᱱᱩᱢ ᱯᱟᱹᱨᱤᱥ</b></big>\n" +
     "== English ==\n" +
     bulletList(english) +
     "\n" +

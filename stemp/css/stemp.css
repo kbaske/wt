@@ -19,6 +19,12 @@ form:hover {
     margin-bottom: 20px; /* Consistent bottom margin between controls */
 }
 
+/* Styling Form Title */
+.form-title {
+    text-align: center;
+    color: #3e4ab1;
+}
+
 /* Styling Labels */
 .form-control label {
     display: block;
