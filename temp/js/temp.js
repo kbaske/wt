@@ -204,15 +204,15 @@ function writeCode() {
   document.getElementById("outputForm").value = outputValue;
 }
 
-// Helper: Ol Chiki to IPA Converter Logic (Updated Voicing Rule)
+// Helper: Ol Chiki to IPA Converter Logic (Fixed Voicing Rule)
 function convertOlToIPA(text) {
   if (!text) return "";
   let t = text;
 
-  // 1. Normalization (Decomposed marks)
+  // 1. Normalization
   t = t.replace(/ᱹᱸ/g, "ᱺ").replace(/ᱸᱹ/g, "ᱺ");
 
-  // 2. Uniform Ordering (Diacritics before modifiers)
+  // 2. Uniform Ordering
   const reorders = [
     ["ᱻᱹ", "ᱹᱻ"],
     ["ᱻᱸ", "ᱸᱻ"],
@@ -225,11 +225,12 @@ function convertOlToIPA(text) {
     t = t.split(old).join(rep);
   });
 
-  // 3. Phaarkaa (ᱼ) used as Relaa (ᱻ) after specific characters
+  // 3. Phaarkaa (ᱼ) to Relaa (ᱻ)
   t = t.replace(/([ᱚᱟᱤᱩᱮᱳᱶᱢᱝᱞᱱ][ᱹᱸᱺ]*)ᱼ/g, "$1ᱻ");
 
-  // 4. Multi-character mapping (Sorted by length descending)
+  // 4. Multi-character mapping (EXCLUDING single base consonants ᱜ, ᱡ, ᱫ, ᱵ)
   const mappings = {
+    // Vowels
     ᱚᱹᱻ: "ɔː",
     ᱚᱹ: "ɔ",
     ᱚᱸᱻ: "ɔ̃ː",
@@ -274,24 +275,28 @@ function convertOlToIPA(text) {
     ᱳᱸ: "õ",
     ᱳᱻ: "oː",
     ᱳ: "o",
+    // Aspirated/Modified
     ᱛᱷ: "tʰ",
     ᱛᱽ: "tʼ",
     ᱛᱼ: "t",
     ᱜᱷ: "gʰ",
     ᱜᱽ: "ɡ",
     ᱜᱼ: "kʼ",
-    ᱠᱷ: "kʰ",
-    ᱠᱽ: "kʼ",
-    ᱠᱼ: "k",
     ᱡᱷ: "d͡ʒʰ",
     ᱡᱽ: "d͡ʒ",
     ᱡᱼ: "cʼ",
-    ᱪᱷ: "cʰ",
-    ᱪᱽ: "cʼ",
-    ᱪᱼ: "c",
     ᱫᱷ: "dʰ",
     ᱫᱽ: "d",
     ᱫᱼ: "tʼ",
+    ᱵᱷ: "bʰ",
+    ᱵᱽ: "b",
+    ᱵᱼ: "pʼ",
+    ᱠᱷ: "kʰ",
+    ᱠᱽ: "kʼ",
+    ᱠᱼ: "k",
+    ᱪᱷ: "cʰ",
+    ᱪᱽ: "cʼ",
+    ᱪᱼ: "c",
     ᱯᱷ: "pʰ",
     ᱯᱽ: "bʼ",
     ᱯᱼ: "p",
@@ -301,9 +306,6 @@ function convertOlToIPA(text) {
     ᱴᱷ: "ʈʰ",
     ᱴᱽ: "ʈ",
     ᱴᱼ: "ʈ",
-    ᱵᱷ: "bʰ",
-    ᱵᱽ: "b",
-    ᱵᱼ: "pʼ",
     ᱱᱷ: "nʰ",
     ᱱᱽ: "n",
     ᱱᱼ: "n",
@@ -311,15 +313,22 @@ function convertOlToIPA(text) {
     ᱲᱽ: "ɽ",
     ᱲᱼ: "ɽ",
   };
-  for (const [k, v] of Object.entries(mappings)) {
-    t = t.split(k).join(v);
+
+  // Apply mappings ONLY for strings length 2 or more first
+  const sortedKeys = Object.keys(mappings).sort((a, b) => b.length - a.length);
+  for (const k of sortedKeys) {
+    // Only replace if it's not a single base consonant we need for voicing later
+    if (k.length > 1 || !/[ᱜᱡᱫᱵ]/.test(k)) {
+      t = t.split(k).join(mappings[k]);
+    }
   }
 
-  // 5. Contextual Voicing: ᱜ, ᱡ, ᱫ, ᱵ become g, j, d, b ONLY when followed by Ol Chiki Vowels
-  // Ol Chiki Vowels: ᱚ(1C5A), ᱟ(1C5E), ᱤ(1C62), ᱩ(1C65), ᱮ(1C69), ᱳ(1C6D)
+  // 5. Contextual Voicing (Done BEFORE single consonant replacement)
+  // Check Ol Chiki text for ᱜ, ᱡ, ᱫ, ᱵ followed by Vowels (or IPA vowels already converted)
   let chars = [...t];
   const voicing = { ᱜ: "ɡ", ᱡ: "d͡ʒ", ᱫ: "d", ᱵ: "b" };
-  const vowels = /[ᱚᱟᱤᱩᱮᱳ]/;
+  // Check for Ol Chiki vowels OR common IPA vowel results from step 4
+  const vowels = /[ᱚᱟᱤᱩᱮᱳɔaəiue]/;
 
   for (let i = 0; i < chars.length - 1; i++) {
     if (voicing[chars[i]] && vowels.test(chars[i + 1])) {
@@ -328,16 +337,20 @@ function convertOlToIPA(text) {
   }
   t = chars.join("");
 
-  // 6. Single character mappings (Default cases)
+  // 6. Final Single character mappings (Defaults)
   const singles = {
     ᱛ: "t",
     ᱜ: "kʼ",
+    ᱠ: "k",
+    ᱡ: "cʼ",
+    ᱪ: "c",
+    ᱫ: "tʼ",
+    ᱯ: "p",
+    ᱵ: "pʼ",
     ᱝᱻ: "ŋː",
     ᱝ: "ŋ",
     ᱞᱻ: "lː",
     ᱞ: "l",
-    ᱠ: "k",
-    ᱡ: "cʼ",
     ᱢᱻ: "mː",
     ᱢ: "m",
     ᱣᱸ: "w̃",
@@ -349,19 +362,15 @@ function convertOlToIPA(text) {
     ᱧ: "ɲ",
     ᱨᱻ: "r",
     ᱨ: "r",
-    ᱪ: "c",
-    ᱫ: "tʼ",
     ᱬᱻ: "ɳː",
     ᱬ: "ɳ",
     ᱭ: "j",
-    ᱯ: "p",
     ᱰ: "ɖ",
     ᱱᱻ: "nː",
     ᱱ: "n",
     ᱲᱻ: "ɽ",
     ᱲ: "ɽ",
     ᱴ: "ʈ",
-    ᱵ: "pʼ",
     ᱶᱻ: "w̃ː",
     ᱶ: "w̃",
   };
