@@ -1,7 +1,10 @@
-// Automatically fill the First Character
+// Automatically fill the First Character AND the IPA
 function updateFirstCharacter() {
   const word = document.getElementById("Sword").value;
+  // Fill First Character for Category
   document.getElementById("firstC").value = word ? word[0] : "";
+  // Fill IPA Automatically using the converter logic
+  document.getElementById("proipa").value = convertOlToIPA(word);
 }
 
 function writeCode() {
@@ -75,7 +78,7 @@ function writeCode() {
         .split(",")
         .map(
           (item) =>
-            "# [[:" + langCode + ":" + item.trim() + "|" + item.trim() + "]]"
+            "# [[:" + langCode + ":" + item.trim() + "|" + item.trim() + "]]",
         )
         .join("\n");
     } else {
@@ -201,6 +204,174 @@ function writeCode() {
   document.getElementById("outputForm").value = outputValue;
 }
 
+// Helper: Ol Chiki to IPA Converter Logic (Updated Voicing Rule)
+function convertOlToIPA(text) {
+  if (!text) return "";
+  let t = text;
+
+  // 1. Normalization (Decomposed marks)
+  t = t.replace(/ᱹᱸ/g, "ᱺ").replace(/ᱸᱹ/g, "ᱺ");
+
+  // 2. Uniform Ordering (Diacritics before modifiers)
+  const reorders = [
+    ["ᱻᱹ", "ᱹᱻ"],
+    ["ᱻᱸ", "ᱸᱻ"],
+    ["ᱻᱺ", "ᱺᱻ"],
+    ["ᱼᱹ", "ᱹᱼ"],
+    ["ᱼᱸ", "ᱸᱼ"],
+    ["ᱼᱺ", "ᱺᱼ"],
+  ];
+  reorders.forEach(([old, rep]) => {
+    t = t.split(old).join(rep);
+  });
+
+  // 3. Phaarkaa (ᱼ) used as Relaa (ᱻ) after specific characters
+  t = t.replace(/([ᱚᱟᱤᱩᱮᱳᱶᱢᱝᱞᱱ][ᱹᱸᱺ]*)ᱼ/g, "$1ᱻ");
+
+  // 4. Multi-character mapping (Sorted by length descending)
+  const mappings = {
+    ᱚᱹᱻ: "ɔː",
+    ᱚᱹ: "ɔ",
+    ᱚᱸᱻ: "ɔ̃ː",
+    ᱚᱸ: "ɔ̃",
+    ᱚᱺᱻ: "ɔ̃ː",
+    ᱚᱺ: "ɔ̃",
+    ᱚᱻ: "ɔː",
+    ᱚ: "ɔ",
+    ᱟᱹᱻ: "əː",
+    ᱟᱹ: "ə",
+    ᱟᱸᱻ: "ãː",
+    ᱟᱸ: "ã",
+    ᱟᱺᱻ: "ə̃ː",
+    ᱟᱺ: "ə̃",
+    ᱟᱻ: "aː",
+    ᱟ: "a",
+    ᱤᱹᱻ: "iː",
+    ᱤᱹ: "i",
+    ᱤᱸᱻ: "ĩː",
+    ᱤᱸ: "ĩ",
+    ᱤᱺᱻ: "ĩː",
+    ᱤᱺ: "ĩ",
+    ᱤᱻ: "iː",
+    ᱤ: "i",
+    ᱩᱹᱻ: "uː",
+    ᱩᱹ: "u",
+    ᱩᱸᱻ: "ũː",
+    ᱩᱸ: "ũ",
+    ᱩᱺᱻ: "ũː",
+    ᱩᱺ: "ũ",
+    ᱩᱻ: "uː",
+    ᱩ: "u",
+    ᱮᱹᱻ: "ɛː",
+    ᱮᱹ: "ɛ",
+    ᱮᱺᱻ: "ɛ̃ː",
+    ᱮᱺ: "ɛ̃",
+    ᱮᱸᱻ: "ẽː",
+    ᱮᱸ: "ẽ",
+    ᱮᱻ: "eː",
+    ᱮ: "e",
+    ᱳᱸᱻ: "õː",
+    ᱳᱸ: "õ",
+    ᱳᱻ: "oː",
+    ᱳ: "o",
+    ᱛᱷ: "tʰ",
+    ᱛᱽ: "tʼ",
+    ᱛᱼ: "t",
+    ᱜᱷ: "gʰ",
+    ᱜᱽ: "ɡ",
+    ᱜᱼ: "kʼ",
+    ᱠᱷ: "kʰ",
+    ᱠᱽ: "kʼ",
+    ᱠᱼ: "k",
+    ᱡᱷ: "d͡ʒʰ",
+    ᱡᱽ: "d͡ʒ",
+    ᱡᱼ: "cʼ",
+    ᱪᱷ: "cʰ",
+    ᱪᱽ: "cʼ",
+    ᱪᱼ: "c",
+    ᱫᱷ: "dʰ",
+    ᱫᱽ: "d",
+    ᱫᱼ: "tʼ",
+    ᱯᱷ: "pʰ",
+    ᱯᱽ: "bʼ",
+    ᱯᱼ: "p",
+    ᱰᱷ: "ɖʰ",
+    ᱰᱽ: "ɖ",
+    ᱰᱼ: "ɖ",
+    ᱴᱷ: "ʈʰ",
+    ᱴᱽ: "ʈ",
+    ᱴᱼ: "ʈ",
+    ᱵᱷ: "bʰ",
+    ᱵᱽ: "b",
+    ᱵᱼ: "pʼ",
+    ᱱᱷ: "nʰ",
+    ᱱᱽ: "n",
+    ᱱᱼ: "n",
+    ᱲᱷ: "ɽʰ",
+    ᱲᱽ: "ɽ",
+    ᱲᱼ: "ɽ",
+  };
+  for (const [k, v] of Object.entries(mappings)) {
+    t = t.split(k).join(v);
+  }
+
+  // 5. Contextual Voicing: ᱜ, ᱡ, ᱫ, ᱵ become g, j, d, b ONLY when followed by Ol Chiki Vowels
+  // Ol Chiki Vowels: ᱚ(1C5A), ᱟ(1C5E), ᱤ(1C62), ᱩ(1C65), ᱮ(1C69), ᱳ(1C6D)
+  let chars = [...t];
+  const voicing = { ᱜ: "ɡ", ᱡ: "d͡ʒ", ᱫ: "d", ᱵ: "b" };
+  const vowels = /[ᱚᱟᱤᱩᱮᱳ]/;
+
+  for (let i = 0; i < chars.length - 1; i++) {
+    if (voicing[chars[i]] && vowels.test(chars[i + 1])) {
+      chars[i] = voicing[chars[i]];
+    }
+  }
+  t = chars.join("");
+
+  // 6. Single character mappings (Default cases)
+  const singles = {
+    ᱛ: "t",
+    ᱜ: "kʼ",
+    ᱝᱻ: "ŋː",
+    ᱝ: "ŋ",
+    ᱞᱻ: "lː",
+    ᱞ: "l",
+    ᱠ: "k",
+    ᱡ: "cʼ",
+    ᱢᱻ: "mː",
+    ᱢ: "m",
+    ᱣᱸ: "w̃",
+    ᱣ: "w",
+    ᱥᱻ: "sː",
+    ᱥ: "s",
+    ᱦ: "h",
+    ᱧᱻ: "ɲː",
+    ᱧ: "ɲ",
+    ᱨᱻ: "r",
+    ᱨ: "r",
+    ᱪ: "c",
+    ᱫ: "tʼ",
+    ᱬᱻ: "ɳː",
+    ᱬ: "ɳ",
+    ᱭ: "j",
+    ᱯ: "p",
+    ᱰ: "ɖ",
+    ᱱᱻ: "nː",
+    ᱱ: "n",
+    ᱲᱻ: "ɽ",
+    ᱲ: "ɽ",
+    ᱴ: "ʈ",
+    ᱵ: "pʼ",
+    ᱶᱻ: "w̃ː",
+    ᱶ: "w̃",
+  };
+  for (const [k, v] of Object.entries(singles)) {
+    t = t.split(k).join(v);
+  }
+
+  return t;
+}
+
 function copy() {
   const textarea = document.getElementById("outputForm");
   textarea.select();
@@ -234,7 +405,7 @@ document.getElementById("copyButton").addEventListener("click", function () {
 
 document.getElementById("copyRedirect").addEventListener("click", function () {
   showToast(
-    "Content copied to clipboard! & redirected to Santali Wiktionary..."
+    "Content copied to clipboard! & redirected to Santali Wiktionary...",
   );
 });
 
